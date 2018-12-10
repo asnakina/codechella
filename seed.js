@@ -48,7 +48,7 @@ async function seed() {
       timeslot: '3'
     }
   ]);
-  const areas = await Areas.bulkCreate([
+  const areas = await Area.bulkCreate([
     {
       name: 'Area 51'
     },
@@ -97,5 +97,6 @@ async function seed() {
       description: 'Tacos all kinds'
     }
   ]);
+  process.exit();
 }
 seed();
