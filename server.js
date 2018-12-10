@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
+
 const { areaRouter } = require('./routes/areas.js');
 const { artistRouter } = require('./routes/artists.js');
 const { vendorRouter } = require('./routes/vendors.js');
