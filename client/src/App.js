@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      screen: '',
+      screen: 'mainView',
       artists: '',
       vendors: '',
       areas: ''
@@ -15,6 +15,12 @@ class App extends Component {
     this.getArtists = this.getArtists.bind(this);
     this.getVendors = this.getVendors.bind(this);
     this.getAreas = this.getAreas.bind(this);
+  }
+
+  setView = (view) => {
+    this.setState({
+      screen: view
+    });
   }
 
   componentDidMount = async () => {
@@ -50,20 +56,54 @@ class App extends Component {
     }
   }
 
-  // async getVendor() {
-  //   try {
-  //     const vendor = await serv.getVendor();
-  //     this.setState(vendor);
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // }
+  async getVendor() {
+    try {
+      const vendor = await serv.getVendor();
+      this.setState(vendor);
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   render() {
+    //switching between views
+    let content;
+    switch (this.state.screen) {
+      case 'mapView':
+       content = <MapList />;
+       break;
+      case 'artistsView':
+       content = <ArtistList />;
+       break;
+      case 'vendorsView':
+       content = <VendorList />;
+       break;
+      case 'areasView':
+       content = <AreaList />
+       break;
+      case 'mainView':
+       content = <MainList />;
+       break;
+      case 'loginView':
+       content = <LoginList />;
+       break;
+      default:
+       content = <MainList />;
+    }
+
     return (
       <div className="App">
         <h1>Codechella</h1>
-        <Artist />
+         <Artist />
+          <nav>
+           <button onClick={() => this.setView('mapView')}>Map</button>
+           <button onClick={() => this.setView('artistsView')}>Artists</button>
+           <button onClick={() => this.setView('vendorsView')}>Vendors</button>
+           <button onClick={() => this.setView('areasView')}>Areas</button>
+           <button onClick={() => this.setView('mainView')}>Main</button>
+           <button onClick={() => this.setView('loginView')}>Log in/Register</button>
+          </nav>
+         { content }
       </div>
     );
   }
