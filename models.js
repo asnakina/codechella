@@ -19,6 +19,7 @@ const Artist = sequelize.define('artist', {
   name: Sequelize.STRING,
   description: Sequelize.STRING,
   timeslot: Sequelize.STRING,
+  img_url: Sequelize.STRING
 });
 
 const Vendor = sequelize.define('vendor', {

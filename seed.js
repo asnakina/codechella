@@ -96,7 +96,7 @@ async function seed() {
       name: 'Funny Taco',
       description: 'Tacos all kinds'
     }
-  ]);
+  ]); 
   process.exit();
 }
 seed();
