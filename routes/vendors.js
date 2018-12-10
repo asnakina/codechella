@@ -5,7 +5,7 @@ const { Vendor }  = require('../models');
 vendorsRouter.get('/', async (req, res) => {
   try {
     const vendors = await Vendor.findAll();
-    res.json({ data: vendors })
+    res.json(vendors)
   } catch(e) {
     console.log(e);
     res.status(500).json({message: `The rout is not connecting`})
@@ -14,10 +14,10 @@ vendorsRouter.get('/', async (req, res) => {
 
 vendorsRouter.get('/:id', async (req, res) => {
   try {
-    const vendors = await Vendor.findOne({
+    const vendor = await Vendor.findOne({
       where: { id: req.params.id }
     });
-    res.json({data: vendors});
+    res.json(vendor);
   } catch(e) {
     console.log(e);
     res.status(500).json({message: e.message})
@@ -26,8 +26,8 @@ vendorsRouter.get('/:id', async (req, res) => {
 
 vendorsRouter.post('/', async (req, res) => {
   try {
-    const vendors = await Vendor.create(req.body);
-    res.json(vendors);
+    const vendor = await Vendor.create(req.body);
+    res.json(vendor);
   } catch(e) {
     console.log(e);
     res.status(500).json({message: e.message})
@@ -49,7 +49,7 @@ vendorsRouter.put('/:id', async (req, res) => {
   try {
     const updatedVendors = await Vendor.findByPk(req.params.id)
     await updatedVendors.update(req.body)
-    res.json({updatedVendors});
+    res.json(updatedVendors);
   } catch(e) {
     res.json({message: e.message})
   }
