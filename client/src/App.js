@@ -69,29 +69,29 @@ class App extends Component {
 
   render() {
     //switching between views
-    let content;
-    switch (this.state.screen) {
-      case 'mapView':
-       content = <MapList />;
-       break;
-      case 'artistsView':
-       content = <ArtistList />;
-       break;
-      case 'vendorsView':
-       content = <VendorList />;
-       break;
-      case 'areasView':
-       content = <AreaList />
-       break;
-      case 'mainView':
-       content = <MainList />;
-       break;
-      case 'loginView':
-       content = <LoginList />;
-       break;
-      default:
-       content = <MainList />;
-    }
+    // let content;
+    // switch (this.state.screen) {
+    //   case 'mapView':
+    //    content = <MapList />;
+    //    break;
+    //   case 'artistsView':
+    //    content = <ArtistList />;
+    //    break;
+    //   case 'vendorsView':
+    //    content = <VendorList />;
+    //    break;
+    //   case 'areasView':
+    //    content = <AreaList />
+    //    break;
+    //   case 'mainView':
+    //    content = <MainList />;
+    //    break;
+    //   case 'loginView':
+    //    content = <LoginList />;
+    //    break;
+    //   default:
+    //    content = <MainList />;
+    // }
 
     return (
       <div className="App">
@@ -104,14 +104,17 @@ class App extends Component {
            <button onClick={() => this.setView('mainView')}>Main</button>
            <button onClick={() => this.setView('loginView')}>Log in/Register</button>
           </nav>
-        <ArtistList artists={this.state.artists || []} />
+
         <VendorList
           vendors = {this.state.vendors || []}
           />
-         { content }
+
+
       </div>
     );
   }
 }
 
 export default App;
+//{ content }
+// <ArtistList artists={this.state.artists || []} />
