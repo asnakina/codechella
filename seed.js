@@ -100,3 +100,4 @@ async function seed() {
   process.exit();
 }
 seed();
+console.log('seed complete');
