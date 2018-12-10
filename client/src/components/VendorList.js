@@ -1,19 +1,16 @@
 import React from 'react';
+import './VendorList.css';
+import Vendor from './Vendor';
 
 export default function VendorList(props) {
   return (
-    <div>
-    {props.vendors.map(vendor => (
-      <div
+    <div className="vendor-list">
+      {props.vendors.map(vendor => {
+        return (
+          <Vendor vendor={vendor}/>
+        )
+      })}
+    </div>
 
-        key={vendor.id}>
-        <h1> Name: { vendor.name }</h1>
-        <p> Description: { vendor.hometown}</p>
-        <p> Image: { vendor.img_url }</p>
-
-      </div>
-    ))}
-
-      </div>
   )
 }
