@@ -24,7 +24,7 @@ vendorsRouter.get('/:id', async (req, res) => {
   }
 });
 
-vendorsRouter.post('/vendor', async (req, res) => {
+vendorsRouter.post('/', async (req, res) => {
   try {
     const vendors = await Vendor.create(req.body);
     res.json(vendors);
