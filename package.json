@@ -4,7 +4,13 @@
   "description": "A sample music festival page using React/Express front/back-end.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "resetDb": "node resetDb.js",
+    "seed": "node seed.js",
+    "hard": "node resetDb.js && node seed.js && nodemon server.js",
+    "debug": "node --inspect-brk server.js"
   },
   "repository": {
     "type": "git",
