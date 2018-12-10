@@ -70,28 +70,28 @@ class App extends Component {
   render() {
     //switching between views
     let content;
-    switch (this.state.screen) {
-      case 'mapView':
-       content = <MapList />;
-       break;
-      case 'artistsView':
-       content = <ArtistList />;
-       break;
-      case 'vendorsView':
-       content = <VendorList />;
-       break;
-      case 'areasView':
-       content = <AreaList />
-       break;
-      case 'mainView':
-       content = <MainList />;
-       break;
-      case 'loginView':
-       content = <LoginList />;
-       break;
-      default:
-       content = <MainList />;
-    }
+    // switch (this.state.screen) {
+    //   case 'mapView':
+    //    content = <MapList />;
+    //    break;
+    //   case 'artistsView':
+    //    content = <ArtistList />;
+    //    break;
+    //   case 'vendorsView':
+    //    content = <VendorList />;
+    //    break;
+    //   case 'areasView':
+    //    content = <AreaList />
+    //    break;
+    //   case 'mainView':
+    //    content = <MainList />;
+    //    break;
+    //   case 'loginView':
+    //    content = <LoginList />;
+    //    break;
+    //   default:
+    //    content = <MainList />;
+    // }
 
     return (
       <div className="App">
