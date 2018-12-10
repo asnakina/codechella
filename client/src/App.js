@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Artist from './components/Artist';
+import VendorList from './components/VendorList';
 import './App.css';
 import serv from './services/apiservices.js';
 
@@ -94,8 +95,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Codechella</h1>
-         <Artist />
-          <nav>
+        <nav>
            <button onClick={() => this.setView('mapView')}>Map</button>
            <button onClick={() => this.setView('artistsView')}>Artists</button>
            <button onClick={() => this.setView('vendorsView')}>Vendors</button>
@@ -103,7 +103,13 @@ class App extends Component {
            <button onClick={() => this.setView('mainView')}>Main</button>
            <button onClick={() => this.setView('loginView')}>Log in/Register</button>
           </nav>
+        <VendorList
+          vendors = {this.state.vendors || []}
+          />
+      
+          
          { content }
+
       </div>
     );
   }
