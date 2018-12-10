@@ -20,11 +20,13 @@ Each __area__ has several __artists__, as well as several __vendors__. A given _
 - _ArtistList_: list of _Artist_ components
 - _Artist_: rendered version of _Artist_ entries
 - _ArtistDetail_: modal details about artist
+- _ArtistForm_: form for adding artists
 
 #### Vendors
 - _VendorList_: list of _Vendor_ components
 - _Vendor_: rendered version of _Vendor_ entries
 - _VendorDetail_: modal details about vendor
+- _VendorForm_: form for adding vendors
 
 #### Areas
 - _AreaNav_: nav to switch between different Areas
