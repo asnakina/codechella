@@ -59,13 +59,16 @@ async function seed() {
   ]);
   const areas = await Area.bulkCreate([
     {
-      name: 'Area 51'
+      name: 'Area 51',
+      img_url: './client/src/images/imgStage1.jpg'
     },
     {
-      name: 'UFO'
+      name: 'UFO',
+      img_url: './client/src/images/imgStage2.jpg'
     },
     {
-      name: 'The Probe'
+      name: 'The Probe',
+      img_url: './client/src/images/imgStage3.jpg'
     }
   ]);
   const vendors = await Vendor.bulkCreate([

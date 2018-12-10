@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 import ArtistList from './components/ArtistList';
 import VendorList from './components/VendorList';
+import AreaList from './components/AreaList';
+import MainList from './components/MainList';
+import MapList from './components/MapList';
 import './App.css';
 import serv from './services/apiservices.js';
 
@@ -9,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      screen: 'mainView',
+      screen: 'artistsView',
       artists: '',
       vendors: '',
       areas: ''
@@ -70,28 +73,28 @@ class App extends Component {
   render() {
     //switching between views
     let content;
-    switch (this.state.screen) {
-      case 'mapView':
-       content = <MapList />;
-       break;
-      case 'artistsView':
-       content = <ArtistList />;
-       break;
-      case 'vendorsView':
-       content = <VendorList />;
-       break;
-      case 'areasView':
-       content = <AreaList />
-       break;
-      case 'mainView':
-       content = <MainList />;
-       break;
-      case 'loginView':
-       content = <LoginList />;
-       break;
-      default:
-       content = <MainList />;
-    }
+    // switch (this.state.screen) {
+    //   case 'mapView':
+    //    content = <MapList />;
+    //    break;
+    //   case 'artistsView':
+    //    content = <ArtistList />;
+    //    break;
+    //   case 'vendorsView':
+    //    content = <VendorList />;
+    //    break;
+    //   case 'areasView':
+    //    content = <AreaList />
+    //    break;
+    //   case 'mainView':
+    //    content = <MainList />;
+    //    break;
+      // case 'loginView':
+      //  content = <LoginList />;
+      //  break;
+      // default:
+      //  content = <MainList />;
+    // }
 
     return (
       <div className="App">
@@ -103,12 +106,13 @@ class App extends Component {
            <button onClick={() => this.setView('areasView')}>Areas</button>
            <button onClick={() => this.setView('mainView')}>Main</button>
            <button onClick={() => this.setView('loginView')}>Log in/Register</button>
-          </nav>
+        </nav>
+        <MapList />
         <ArtistList artists={this.state.artists || []} />
-        <VendorList
-          vendors = {this.state.vendors || []}
-          />
-         { content }
+        <VendorList vendors = {this.state.vendors || []} />
+        <AreaList areas={this.state.areas || []} />
+        <MainList />
+        { content }
       </div>
     );
   }
