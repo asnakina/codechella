@@ -34,7 +34,7 @@ vendorsRouter.post('/', async (req, res) => {
   }
 });
 
-vendorsRouter.delete('/vendor/:id', async (req, res) => {
+vendorsRouter.delete('/:id', async (req, res) => {
   try {
     const vendors = await Vendor.destroy({
       where: { id: req.params.id }
@@ -45,7 +45,7 @@ vendorsRouter.delete('/vendor/:id', async (req, res) => {
   }
 });
 
-vendorsRouter.put('/vendor/:id', async (req, res) => {
+vendorsRouter.put('/:id', async (req, res) => {
   try {
     const updatedVendors = await Vendor.findByPk(req.params.id)
     await updatedVendors.update(req.body)
