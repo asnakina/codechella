@@ -11,6 +11,6 @@ const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(cors());
-app.use('/vendors', vendorRouter);
+app.use('/vendors', vendorsRouter);
 
 app.listen(PORT, () => `Listening on PORT ${PORT}.`);

@@ -1,9 +1,9 @@
 const express = require('express');
-const vendorRouter = express.Router();
+const vendorsRouter = express.Router();
 const { Vendor }  = require('../models');
 
-vendorRouter.get('/', async (req, res) => {
-  try{
+vendorsRouter.get('/', async (req, res) => {
+  try {
     const vendors = await Vendor.findAll();
     res.json({ data: vendors })
   } catch(e) {
@@ -11,6 +11,14 @@ vendorRouter.get('/', async (req, res) => {
     res.status(500).json({message: `The rout is not connecting`})
   }
 });
+
+vendorsRouter.get('/:id', async (req, res) => {
+  try {
+    const vendors = await Vendor.findById({
+      where
+    })
+  }
+})
 
 module.exports = {
   vendorRouter
