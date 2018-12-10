@@ -29,7 +29,6 @@ areaRouter.get('/:id', async (req, res) => {
   }
 });
 
-
 module.exports = {
   areaRouter
 }
