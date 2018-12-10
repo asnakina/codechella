@@ -14,7 +14,7 @@ vendorsRouter.get('/', async (req, res) => {
 
 vendorsRouter.get('/:id', async (req, res) => {
   try {
-    const vendors = await Vendor.findById({
+    const vendors = await Vendor.findOne({
       where: { id: req.params.id }
     });
     res.json({data: vendors});
