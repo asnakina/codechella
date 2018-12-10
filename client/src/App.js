@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Artist from './components/Artist';
+import VendorList from './components/VendorList';
 import './App.css';
 import serv from './services/apiservices.js';
 
@@ -64,6 +65,9 @@ class App extends Component {
       <div className="App">
         <h1>Codechella</h1>
         <Artist />
+        <VendorList
+          vendors = {this.state.vendors || []}
+          />
       </div>
     );
   }
