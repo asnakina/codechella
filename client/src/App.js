@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Artist from './components/Artist';
+
+import ArtistList from './components/ArtistList';
 import VendorList from './components/VendorList';
 import './App.css';
 import serv from './services/apiservices.js';
@@ -103,13 +104,11 @@ class App extends Component {
            <button onClick={() => this.setView('mainView')}>Main</button>
            <button onClick={() => this.setView('loginView')}>Log in/Register</button>
           </nav>
+        <ArtistList artists={this.state.artists || []} />
         <VendorList
           vendors = {this.state.vendors || []}
           />
-      
-          
          { content }
-
       </div>
     );
   }
