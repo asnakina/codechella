@@ -1,5 +1,5 @@
 import React from 'react';
-import imgMap from '../images/imgMap.png'
+import imgMap from '../../images/imgMap.png'
 
 export default function MapList(props) {
   return (
