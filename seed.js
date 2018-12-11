@@ -1,4 +1,5 @@
 const { User, Artist, Vendor, Area } = require('./models');
+import imgStage1 from './imgStage1.jpg'
 
 async function seed() {
   const artists = await Artist.bulkCreate([
@@ -60,7 +61,8 @@ async function seed() {
   const areas = await Area.bulkCreate([
     {
       name: 'Area 51',
-      img_url: './client/src/images/imgStage1.jpg'
+        img_url: 'imgStage1'
+        // img_url: './client/src/images/imgStage1.jpg'
     },
     {
       name: 'UFO',
