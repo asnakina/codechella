@@ -89,9 +89,9 @@ class App extends Component {
       case 'mainView':
        content = <MainList />;
        break;
-      case 'loginView':
-       content = <LoginList />;
-       break;
+      // case 'loginView':
+      //  content = <LoginList />;
+      //  break;
       default:
        content = <MainList />;
     }

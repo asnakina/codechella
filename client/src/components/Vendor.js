@@ -1,4 +1,5 @@
 import React from 'react';
+import './VendorList.css';
 
 export default function Vendor(props) {
   return (
