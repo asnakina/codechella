@@ -118,6 +118,23 @@ async function seed() {
       img_url: 'https://pinchofyum.com/wp-content/uploads/Chicken-Tinga-Tacos-1-2.jpg'
     }
   ]);
+  const users = await User.bulkCreate([
+    {
+      username: 'anastasia',
+      password: 'github',
+      ticket: 'VIP'
+    },
+    {
+      username: 'alberto',
+      password: 'fyre',
+      ticket: 'VIP'
+    },
+    {
+      username: 'soleil',
+      password: 'butt()',
+      ticket: 'VIP'
+    }
+  ]);
   process.exit();
 }
 seed();
