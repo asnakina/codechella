@@ -161,7 +161,7 @@ usersRouter.delete('/:user/vendors/:vendor', async (req, res) => {
     });
     user.removeVendor(vendor);
     res.json(user);
-  } catch (e)
+  } catch (e) {
     console.error(e);
     res.status(500).json({
       message: e.message

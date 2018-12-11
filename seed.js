@@ -134,7 +134,9 @@ async function seed() {
       password: 'butt()',
       ticket: 'VIP'
     }
-  ]);
+  ], {
+    individualHooks: true
+  });
   process.exit();
 }
 seed();
