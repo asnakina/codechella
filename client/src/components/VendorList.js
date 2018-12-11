@@ -11,6 +11,6 @@ export default function VendorList(props) {
         )
       })}
     </div>
-
   )
 }
+ // <h1>Vendors:</h1>
