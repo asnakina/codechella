@@ -24,6 +24,7 @@ class App extends Component {
     this.getAreas = this.getAreas.bind(this);
   }
 
+
   setView = (view) => {
     this.setState({
       screen: view
@@ -95,7 +96,7 @@ class App extends Component {
       case 'loginView':
        content = <LoginView />;
        break;
-       
+
       default:
        content = <MainList />;
     }
