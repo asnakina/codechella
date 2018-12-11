@@ -1,16 +1,17 @@
 import React from 'react';
-import './Artist.css';
+import './ArtistList.css';
 
 export default function Artist(props) {
   return (
-    <div className="Artist">
+<div id="wrapper">
+<div className="artist">
+
+<div className="img_wrapper">
+<img alt={props.artist.name} src={props.artist.img_url}/>
+<span><input className="favebutton" type="button" value="Add to Favorites"/></span>
+</div>
       <h3>{props.artist.name.toUpperCase()}</h3>
-      <img alt={props.artist.name} src={props.artist.img_url}/>
     </div>
+  </div>
   )
 }
-// <h4>{props.artist.description}</h4>
-// name
-// description
-// timeslot
-// img_url

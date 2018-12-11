@@ -5,6 +5,8 @@ import VendorView from './components/vendorcomponents/VendorView';
 import AreaView from './components/areacomponents/AreaView';
 import MainList from './components/maincomponents/MainList';
 import MapList from './components/mapcomponents/MapList';
+import LoginView from './components/logincomponents/LoginView';
+import RegisterView from './components/logincomponents/RegisterView';
 import './App.css';
 import serv from './services/apiservices.js';
 
@@ -21,6 +23,7 @@ class App extends Component {
     this.getVendors = this.getVendors.bind(this);
     this.getAreas = this.getAreas.bind(this);
   }
+
 
   setView = (view) => {
     this.setState({
@@ -70,6 +73,7 @@ class App extends Component {
     }
   }
 
+
   render() {
     //switching between views
     let content;
@@ -89,9 +93,10 @@ class App extends Component {
       case 'mainView':
        content = <MainList />;
        break;
-      // case 'loginView':
-      //  content = <LoginList />;
-      //  break;
+      case 'loginView':
+       content = <LoginView />;
+       break;
+
       default:
        content = <MainList />;
     }
@@ -100,12 +105,13 @@ class App extends Component {
       <div className="App">
         <h1>Codechella</h1>
         <nav>
+           <button onClick={() => this.setView('mainView')} className="navBtn">Main</button>
            <button onClick={() => this.setView('mapView')} className="navBtn">Map</button>
            <button onClick={() => this.setView('artistsView')} className="navBtn">Artists</button>
            <button onClick={() => this.setView('vendorsView')} className="navBtn">Vendors</button>
            <button onClick={() => this.setView('areasView')} className="navBtn">Areas</button>
-           <button onClick={() => this.setView('mainView')} className="navBtn">Main</button>
-           <button onClick={() => this.setView('loginView')} className="navBtn">Log in/Register</button>
+           <button onClick={() => this.setView('loginView')} className="navBtn">Login/Register</button>
+
         </nav>
         { content }
       </div>
