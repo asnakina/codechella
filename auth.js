@@ -1,11 +1,11 @@
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const { User } = require('.models');
-const JwtStrategy = require('passport-jwt').Stratedgy;
+const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 
 const jwt = require('jsonwebtoken');
-const SECRET = "codechella sucks";
+const SECRET = "coachella sucks";
 const sign = (payload) => jwt.sign(payload, SECRET);
 
 const opts = {
