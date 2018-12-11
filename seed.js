@@ -2,6 +2,20 @@ const { User, Artist, Vendor, Area } = require('./models');
 import imgStage1 from './imgStage1.jpg'
 
 async function seed() {
+  const areas = await Area.bulkCreate([
+    {
+      name: 'Area 51',
+      img_url: '../client/src/images/imgStage1.jpg'
+    },
+    {
+      name: 'UFO',
+      img_url: './client/src/images/imgStage2.jpg'
+    },
+    {
+      name: 'The Probe',
+      img_url: '/.client/src/images/imgStage3.jpg'
+    }
+  ], { returning: true });
   const artists = await Artist.bulkCreate([
     {
       name: 'Modest Mouse',
@@ -12,19 +26,19 @@ async function seed() {
     {
       name: 'The Mars Volta',
       description: 'The Mars Volta is an American progressive rock band from El Paso, Texas, formed in 2001.',
-      timeslot: '2',
+      timeslot: '1',
       img_url: 'https://images-na.ssl-images-amazon.com/images/I/B1EA8jRxuoS._SL1000_.png'
     },
     {
       name: 'Lorde',
       description: 'Lorde chose her stage name because she was fascinated with "royals and aristocracy". However, she felt the name Lord was too masculine, thus she added an "e" to make it more feminine. She described her public image as coming "naturally" to her.',
-      timeslot: '3',
+      timeslot: '1',
       img_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/RF_3006_Lorde%40Arena_Krists_Luhaers-4_%2835731259842%29_%28cropped%29.jpg/1200px-RF_3006_Lorde%40Arena_Krists_Luhaers-4_%2835731259842%29_%28cropped%29.jpg'
     },
     {
       name: 'Janelle Monae',
       description: 'Janelle Monáe Robinson (/dʒəˈnɛl moʊˈneɪ/;[8] born December 1, 1985)[9] is an American singer, songwriter, actress, and producer.',
-      timeslot: '1',
+      timeslot: '2',
       img_url: 'https://media.timeout.com/images/105232498/image.jpg'
     },
     {
@@ -36,19 +50,19 @@ async function seed() {
     {
       name: 'Jank',
       description: 'Jank (stylized as JANK or J A N K !) was an American rock band from Philadelphia, Pennsylvania, formed in 2015.',
-      timeslot: '3',
+      timeslot: '2',
       img_url: 'https://1.bp.blogspot.com/-jz0psca2usc/WHMWCfpSe3I/AAAAAAAAJfY/KocInJNzaigm3NrU-kybFzJvBRjdvbaMgCLcB/s1600/Jank%2Bband.jpeg'
     },
     {
       name: 'Miguel',
       description: 'Miguel Jontel Pimentel (born October 23, 1985) is an American singer and songwriter.',
-      timeslot: '1',
+      timeslot: '3',
       img_url: 'https://timedotcom.files.wordpress.com/2017/11/miguel-protesting-prisons.jpg'
     },
     {
       name: 'FIDLAR',
       description: 'Fidlar, stylized as FIDLAR, is a punk rock band from Los Angeles, California. The band is currently signed to Mom + Pop Music in the US,[1] Wichita Recordings in the UK[2] and Dine Alone Records in Canada.',
-      timeslot: '2',
+      timeslot: '3',
       img_url: 'http://diymag.com/media/img/Artists/F/Fidlar/_1500x1000_crop_center-center_75/fidlar_philsmithies_diy_20150605_2047x1365.jpg'
     },
     {
@@ -57,6 +71,7 @@ async function seed() {
       timeslot: '3',
       img_url: 'https://1n9mch40qwp25b0ca1wk6bt6-wpengine.netdna-ssl.com/wp-content/uploads/2017/06/Enrique-Iglesias.png'
     }
+<<<<<<< HEAD
   ]);
   const areas = await Area.bulkCreate([
     {
@@ -73,6 +88,15 @@ async function seed() {
       img_url: '/.client/src/images/imgStage3.jpg'
     }
   ]);
+=======
+  ], {
+    individualHooks: true
+  });
+  const areaData = await Area.findAll();
+  Artist.afterCreate(async (artist, options) => {
+    return await artist.setArea(areaData[artist.id%3]);
+  });
+>>>>>>> 5212f783d5173592d0cd958590fbf8a32e622e09
   const vendors = await Vendor.bulkCreate([
     {
       name: 'Vaguen',
@@ -119,7 +143,13 @@ async function seed() {
       description: 'Tacos all kinds',
       img_url: 'https://pinchofyum.com/wp-content/uploads/Chicken-Tinga-Tacos-1-2.jpg'
     }
-  ]);
+  ], {
+    individualHooks: true
+  });
+  Vendor.afterCreate(async (vendor, options) => {
+    console.log(vendor.id);
+    return await vendor.setArea(areaData[vendor.id%3]);
+  })
   const users = await User.bulkCreate([
     {
       username: 'anastasia',
@@ -139,8 +169,8 @@ async function seed() {
   ], {
     individualHooks: true
   });
-  // vendors.map(vendor => await vendor.setArea(areas[vendor.id % 3]));
-  // artists.map(artist => await artist.setArea(area[artist.id % 3]));
+  await Promise.all(vendors.map((vendor, index) => areas[index%3].addVendor(vendor)));
+  await Promise.all(artists.map((artist, index) => areas[index%3].addArtist(artist)));
   process.exit();
 }
 seed();
