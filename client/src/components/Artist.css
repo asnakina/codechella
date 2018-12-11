@@ -1,0 +1,51 @@
+.ArtistList {
+  width: 79vmin;
+  height: 79vmin;
+  display: grid;
+  grid-template-columns: repeat(3,25vmin);
+  grid-gap: 2vmin;
+  margin: 0 auto;
+}
+
+.Artist {
+  width: 25vmin;
+  height: 25vmin;
+  position: relative;
+  box-shadow: 2px 2px lightgrey;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.Artist img {
+  width: 25vmin;
+  height: 25vmin;
+  position: absolute;
+  top: 0;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  mix-blend-mode: color-burn;
+  transition: all 0.3s;
+  transform-origin: center;
+  text-align: center;
+}
+
+.Artist img:hover {
+  width: 26vmin;
+  height: 26vmin;
+}
+
+.Artist h3 {
+  color: grey;
+  z-index: 1000;
+  font-family: 'Lato';
+  font-weight: 200;
+  background: white;
+  max-width: 20vmin;
+  padding: 0 1vmin;
+  margin: 0 auto;
+  font-size: 2vmin;
+  transition: all 0.3s;
+}
