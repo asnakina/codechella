@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ArtistList from './ArtistList';
+import RegisterForm from './RegisterForm';
 
-export default class ArtistView extends Component {
+export default class RegisterView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,8 +16,8 @@ export default class ArtistView extends Component {
   render() {
     return (
       <div>
-      {this.state.list ? <ArtistList
-        artists = {this.props.artists}/> : null}
+      Please Register
+      <RegisterForm />
       </div>
     )
   }
