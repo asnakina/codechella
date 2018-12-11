@@ -1,9 +1,11 @@
 import React from 'react';
+import imgMain from '../images/imgMain1.jpg'
 
 export default function MainList(props) {
   return (
     <div className="main">
-        <h1> Cochella </h1>
+        <h1>Music Festival</h1>
+        <img src={imgMain} className="imgMain" />
     </div>
   )
 }

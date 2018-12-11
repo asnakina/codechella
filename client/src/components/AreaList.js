@@ -4,7 +4,7 @@ import Area from './Area';
 export default function AreaList(props) {
   return (
     <div>
-     <h2>Area List: </h2>
+     <h1>Areas:</h1>
       {props.areas.map(eachArea => (
         <Area
           key={eachArea.id}
