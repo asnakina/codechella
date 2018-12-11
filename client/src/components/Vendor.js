@@ -1,7 +1,9 @@
 import React from 'react';
+import './VendorList.css';
 
 export default function Vendor(props) {
   return (
+<<<<<<< HEAD
 
 <div id="wrapper">
 <div className="vendor">
@@ -12,6 +14,12 @@ export default function Vendor(props) {
 </div>
       <h3>{props.vendor.name.toUpperCase()}</h3>
 
+=======
+    <div className="vendor">
+      <img src={props.vendor.img_url}/>
+      <h3>{props.vendor.name}</h3>
+      
+>>>>>>> 5d6fc08eb454a72ef7daf08994e13cb7a7062bf0
     </div>
   </div>
   )

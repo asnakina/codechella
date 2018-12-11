@@ -68,7 +68,7 @@ async function seed() {
     },
     {
       name: 'The Probe',
-      img_url: './client/src/images/imgStage3.jpg'
+      img_url: '/.client/src/images/imgStage3.jpg'
     }
   ]);
   const vendors = await Vendor.bulkCreate([

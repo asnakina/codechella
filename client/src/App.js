@@ -12,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      screen: 'artistsView',
+      screen: 'mainView',
       artists: '',
       vendors: '',
       areas: ''
@@ -100,12 +100,12 @@ class App extends Component {
       <div className="App">
         <h1>Codechella</h1>
         <nav>
-           <button onClick={() => this.setView('mapView')}>Map</button>
-           <button onClick={() => this.setView('artistsView')}>Artists</button>
-           <button onClick={() => this.setView('vendorsView')}>Vendors</button>
-           <button onClick={() => this.setView('areasView')}>Areas</button>
-           <button onClick={() => this.setView('mainView')}>Main</button>
-           <button onClick={() => this.setView('loginView')}>Log in/Register</button>
+           <button onClick={() => this.setView('mapView')} className="navBtn">Map</button>
+           <button onClick={() => this.setView('artistsView')} className="navBtn">Artists</button>
+           <button onClick={() => this.setView('vendorsView')} className="navBtn">Vendors</button>
+           <button onClick={() => this.setView('areasView')} className="navBtn">Areas</button>
+           <button onClick={() => this.setView('mainView')} className="navBtn">Main</button>
+           <button onClick={() => this.setView('loginView')} className="navBtn">Log in/Register</button>
         </nav>
         { content }
       </div>

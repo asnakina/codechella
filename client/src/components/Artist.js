@@ -9,6 +9,7 @@ export default function Artist(props) {
     </div>
   )
 }
+// <h4>{props.artist.description}</h4>
 // name
 // description
 // timeslot

@@ -15,7 +15,11 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+<<<<<<< HEAD
   overflow: hidden;
+=======
+  
+>>>>>>> 5d6fc08eb454a72ef7daf08994e13cb7a7062bf0
 }
 
 .vendor img {
