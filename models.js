@@ -1,4 +1,6 @@
 const { Sequelize } = require('sequelize');
+const bcrypt = require('bcryptjs');
+const SALT = 10;
 
 const sequelize = new Sequelize({
   database: 'codechella_db',
@@ -13,6 +15,12 @@ const User = sequelize.define('user', {
   username: Sequelize.STRING,
   password: Sequelize.STRING,
   ticket: Sequelize.STRING
+}, {
+  hooks: {
+    beforeCreate: async (user, options) => {
+      user.password = await bcrypt.hash(user.password, SALT);
+    }
+  }
 });
 
 const Artist = sequelize.define('artist', {
