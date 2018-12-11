@@ -1,71 +1,71 @@
 const express = require('express');
 const { User, Artist, Vendor } = require('../models');
+const { passport, sign } = require('../auth');
+const bcrypt = require('bcryptjs')
 
 const usersRouter = express.Router();
 
-usersRouter.get('/', async (req, res) => {
+usersRouter.get('/', passport.authenticate('jwt', { session: false }), async (req, res) => {
+  try {
+    res.json(req.user)
+  } catch (e) {
+      console.log(e)
+      res.status(500).json({message: `The route is not connecting`})
+    }
+  }
+);
+
+usersRouter.post('/register', async (req, res) => {
   try {
     const users = await User.findAll();
-    res.json(users)
-  } catch (e) {
-      console.log(e);
-      res.status(500).json({message: `The route is not connecting`})
+    if (users.some(user => user.username === req.body.username)) {
+      throw Error('Username has been taken.');
     }
-  }
-);
-
-usersRouter.get('/:id', async (req, res) => {
-  try {
-    const user = await User.findOne();
-    res.json(user)
-  } catch (e) {
-      console.log(e);
-      res.status(500).json({message: `The route is not connecting`})
+    else {
+      const user = await User.create(req.body);
+      const { id, username } = user.dataValues;
+      const token = sign({ id, username });
+      res.json({token});
     }
-  }
-);
-
-usersRouter.post('/', async (req, res) => {
-  try {
-    const postuser = await User.create(req.body);
-    res.json(postuser)
   } catch (e){
       console.log(e);
-      res.status(500).json({message: `The route is not connecting`})
+      res.status(500).json({message: e.message})
     }
   }
 );
 
-usersRouter.put('/:id', async (req, res) => {
+usersRouter.post('/login', async (req, res) => {
   try {
-    const updatedUsers = await User.findByPk(req.params.id)
-    await updatedUsers.update(req.body)
-    res.json(updatedUsers);
-  } catch(e) {
-    res.json({message: e.message})
-  }
-});
-
-usersRouter.delete('/:id', async (req, res) => {
-  try {
-    const users = await User.destroy({
-      where: { id: req.params.id }
+    const { username, password } = req.body;
+    const user = await User.findOne({ where: { username } });
+    const passwordValid = await bcrypt.compare(password, user.password);
+    const { id, ticket } = user;
+    if (passwordValid) {
+      const token = sign({
+        id, username, ticket
+      });
+      res.json({token});
+    }
+    else {
+      throw Error('Invalid credentials!');
+    }
+  } catch (e) {
+    console.error(e);
+    res.status(401).json({
+      msg: e.message
     });
-    res.json({message: `User with id ${req.params.id} deleted`})
-  } catch(e) {
-    res.json({message: e.message})
-  }
-});
+    }
+  });
 
-usersRouter.get('/:id/artists', async (req, res) => {
+usersRouter.get('/artists', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
     const user = await User.findOne({
-      where: { id: req.params.id },
+      where: { id: req.user.id },
       include: {
         model: Artist
       }
     });
-    res.json(user);
+    res.json(user.artists);
   } catch (e) {
     console.error(e);
     res.status(500).json({
@@ -74,53 +74,53 @@ usersRouter.get('/:id/artists', async (req, res) => {
   }
 })
 
-usersRouter.post('/:user/artists/:artist', async (req, res) => {
+usersRouter.post('/artists/:artist', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
-    const user = await User.findOne({
-      where: { id: req.params.user },
-      include: {
-        model: Artist
-      }
-    });
     const artist = await Artist.findOne({
       where: { id: req.params.artist }
     });
-    user.addArtist(artist);
-    res.json(user);
+    await req.user.addArtist(artist);
+    const user = await User.findOne({
+      where: { id: req.user.id },
+      include: {
+        model: Artist
+      }
+    })
+    res.json(user.artists);
   } catch(e) {
     console.log(e);
     res.status(500).json({message: e.message})
   }
 });
 
-usersRouter.delete('/:user/artists/:artist', async (req, res) => {
+usersRouter.delete('/artists/:artist', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
+    const artist = await Artist.findOne({
+      where: { id: req.params.artist }
+    });
+    await req.user.removeArtist(artist);
     const user = await User.findOne({
-      where: { id: req.params.user },
+      where: { id: req.user.id },
       include: {
         model: Artist
       }
     });
-    const artist = await Artist.findOne({
-      where: { id: req.params.artist }
-    });
-    user.removeArtist(artist);
-    res.json(user);
+    res.json(user.artists);
   } catch(e) {
     console.log(e);
     res.status(500).json({message: e.message})
   }
 });
 
-usersRouter.get('/:id/vendors', async (req, res) => {
+usersRouter.get('/vendors', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
     const user = await User.findOne({
-      where: { id: req.params.id },
+      where: { id: req.user.id },
       include: {
         model: Vendor
       }
     });
-    res.json(user);
+    res.json(user.vendors);
   } catch (e) {
     console.error(e);
     res.status(500).json({
@@ -129,38 +129,38 @@ usersRouter.get('/:id/vendors', async (req, res) => {
   }
 })
 
-usersRouter.post('/:user/vendors/:vendor', async(req, res) => {
+usersRouter.post('/vendors/:vendor', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
-    const user = await User.findOne({
-      where: { id: req.params.user },
-      include: {
-        model: Vendor
-      }
-    });
     const vendor = await Vendor.findOne({
       where: { id: req.params.vendor }
     });
-    user.addVendor(vendor);
-    res.json(user);
+    await req.user.addVendor(vendor);
+    const user = await User.findOne({
+      where: { id: req.user.id },
+      include: {
+        model: Vendor
+      }
+    })
+    res.json(user.vendors);
   } catch(e) {
     console.log(e);
     res.status(500).json({message: e.message})
   }
 });
 
-usersRouter.delete('/:user/vendors/:vendor', async (req, res) => {
+usersRouter.delete('/vendors/:vendor', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
+    const vendor = await Vendor.findOne({
+      where: { id: req.params.vendor }
+    });
+    await req.user.removeVendor(vendor);
     const user = await User.findOne({
-      where: { id: req.params.user },
+      where: { id: req.user.id },
       include: {
         model: Vendor
       }
     });
-    const vendor= await Vendor.findOne({
-      where: { id: req.params.vendor }
-    });
-    user.removeVendor(vendor);
-    res.json(user);
+    res.json(user.vendors);
   } catch (e) {
     console.error(e);
     res.status(500).json({
@@ -169,15 +169,10 @@ usersRouter.delete('/:user/vendors/:vendor', async (req, res) => {
   }
 })
 
-// AUTH
-// TODO: set up passport
-// TODO: set up encryption
-// TODO: test passwords
-// TODO test login
 
 // POST-AUTH
-// TODO: create multiple users
 // TODO: integrate front end with favorites
+// TODO: add ticket function
 module.exports = {
   usersRouter
 }
