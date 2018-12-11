@@ -61,6 +61,7 @@
  font-size:17px;
  opacity: 0;
 }
+
 .img_wrapper:hover .favebutton {
  opacity: 1;
 
