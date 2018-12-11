@@ -1,0 +1,39 @@
+.vendor-list {
+  width: 79vmin;
+  height: 79vmin;
+  display: grid;
+  grid-template-columns: repeat(3,25vmin);
+  grid-gap: 2vmin;
+  margin: 0 auto;
+}
+
+.vendor {
+  width: 25vmin;
+  height: 25vmin;
+  position: relative;
+  box-shadow: 2px 2px lightgrey;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.vendor img {
+  width: 25vmin;
+  height: 25vmin;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  mix-blend-mode: color-burn;
+}
+
+.vendor h3 {
+  color: grey;
+  z-index: 1000;
+  font-family: 'Hyperspace';
+  background: white;
+  margin: 0 auto;
+  font-size: 2vmin;
+  padding: 0 1vmin;
+  max-width: 20vmin;
+}

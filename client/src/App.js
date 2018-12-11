@@ -107,11 +107,12 @@ class App extends Component {
            <button onClick={() => this.setView('mainView')}>Main</button>
            <button onClick={() => this.setView('loginView')}>Log in/Register</button>
         </nav>
-        <MapList />
-        <ArtistList artists={this.state.artists || []} />
-        <VendorList vendors = {this.state.vendors || []} />
-        <AreaList areas={this.state.areas || []} />
-        <MainList />
+           <MapList />
+           <ArtistList artists={this.state.artists || []} />
+           <VendorList vendors = {this.state.vendors || []} />
+           <AreaList areas={this.state.areas || []} />
+           <MainList />
+        </nav>
         { content }
       </div>
     );
@@ -119,3 +120,5 @@ class App extends Component {
 }
 
 export default App;
+//{ content }
+// <ArtistList artists={this.state.artists || []} />
