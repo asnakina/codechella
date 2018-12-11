@@ -137,6 +137,8 @@ async function seed() {
   ], {
     individualHooks: true
   });
+  // vendors.map(vendor => await vendor.setArea(areas[vendor.id % 3]));
+  // artists.map(artist => await artist.setArea(area[artist.id % 3]));
   process.exit();
 }
 seed();

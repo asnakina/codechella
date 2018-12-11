@@ -1,4 +1,5 @@
 import React from 'react';
+import './Area.css';
 
 export default function Area(props) {
   return (
