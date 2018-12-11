@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
+import VendorList from './VendorList';
 
 export default class VendorView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      list: true
+
+    }
+
+  }
+
+
+
   render() {
     return (
-      <h3>VendorView</h3>
+      <div>
+      {this.state.list ? <VendorList
+        vendors = {this.props.vendors}/> : null}
+      </div>
     )
   }
 }
