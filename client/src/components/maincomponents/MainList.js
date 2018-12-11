@@ -1,5 +1,5 @@
 import React from 'react';
-import imgMain from '../images/imgMain1.jpg'
+import imgMain from '../../images/imgMain1.jpg'
 
 export default function MainList(props) {
   return (

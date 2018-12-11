@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import ArtistList from './components/ArtistList';
-import VendorList from './components/VendorList';
-import AreaList from './components/AreaList';
-import MainList from './components/MainList';
-import MapList from './components/MapList';
+import ArtistView from './components/artistcomponents/ArtistView';
+import VendorView from './components/vendorcomponents/VendorView';
+import AreaView from './components/areacomponents/AreaView';
+import MainList from './components/maincomponents/MainList';
+import MapList from './components/mapcomponents/MapList';
 import './App.css';
 import serv from './services/apiservices.js';
 
@@ -78,13 +78,13 @@ class App extends Component {
        content = <MapList />;
        break;
       case 'artistsView':
-       content = <ArtistList artists={this.state.artists || []} />;
+       content = <ArtistView artists={this.state.artists || []} />;
        break;
       case 'vendorsView':
-       content = <VendorList vendors = {this.state.vendors || []} />;
+       content = <VendorView vendors = {this.state.vendors || []} />;
        break;
       case 'areasView':
-       content = <AreaList areas={this.state.areas || []} />
+       content = <AreaView areas={this.state.areas || []} />
        break;
       case 'mainView':
        content = <MainList />;
