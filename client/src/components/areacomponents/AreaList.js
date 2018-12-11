@@ -16,6 +16,7 @@ export default function AreaList(props) {
          />
        ))
       }
+      
       </div>
     </div>
   );
