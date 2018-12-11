@@ -59,51 +59,63 @@ async function seed() {
   ]);
   const areas = await Area.bulkCreate([
     {
-      name: 'Area 51'
+      name: 'Area 51',
+      img_url: './client/src/images/imgStage1.jpg'
     },
     {
-      name: 'UFO'
+      name: 'UFO',
+      img_url: './client/src/images/imgStage2.jpg'
     },
     {
-      name: 'The Probe'
+      name: 'The Probe',
+      img_url: './client/src/images/imgStage3.jpg'
     }
   ]);
   const vendors = await Vendor.bulkCreate([
     {
       name: 'Vaguen',
-      description: 'We have the exact same menu for vegans and non-vegans, but switched ingredients to accomodate for different dietary requirements.'
+      description: 'We have the exact same menu for vegans and non-vegans, but switched ingredients to accomodate for different dietary requirements.',
+      img_url: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/11/14/12/vegan-buddha-bowl.jpg'
     },
     {
       name: 'Taco Bout Tacos',
-      description: 'We have tacos'
+      description: 'We have tacos',
+      img_url: 'https://d3cizcpymoenau.cloudfront.net/images/37752/SFS_chorizo_potato_tacos-64.jpg'
     },
     {
       name: 'Between the Buns', // thanks Dima for the sick name
-      description: 'We have burgers'
+      description: 'We have burgers',
+      img_url: 'http://4.bp.blogspot.com/-4Fub-U2MmxA/UG8F-IoijqI/AAAAAAAAAsY/msi3hXVlZb0/s1600/Bleecker-st-burger+(6).jpg'
     },
     {
       name: 'C\'est Cheese',
-      description: 'We got...uh...da cheez.'
+      description: 'We got...uh...da cheez.',
+      img_url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg'
     },
     {
       name: 'Sweet Greens',
-      description: 'It\'s one branch of millions our places'
+      description: 'It\'s one branch of millions our places',
+      img_url: 'https://img1.cookinglight.timeinc.net/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/2017/03/main/crunchy-cucumber-feta-almond-salad-1705p126.jpg?itok=YhH6kf8b'
     },
     {
       name: 'Green with Envy',
-      description: 'Cool salad place.'
+      description: 'Cool salad place.',
+      img_url: 'https://cookieandkate.com/images/2017/03/italian-chopped-salad-vegetarian.jpg'
     },
     {
       name: 'Juicy Juice',
-      description: 'Juices all kinds from Cali fruits'
+      description: 'Juices all kinds from Cali fruits',
+      img_url: 'https://www.thelittleepicurean.com/wp-content/uploads/2017/01/green-smoothies.jpg'
     },
     {
       name: 'SZL',
-      description: 'Pronounced sizzle. An Austin, Texas based BBQ restaurant known for its pulled pork.'
+      description: 'Pronounced sizzle. An Austin, Texas based BBQ restaurant known for its pulled pork.',
+      img_url: 'https://3olj7vg0kmp1zz2i82eav8b5-wpengine.netdna-ssl.com/wp-content/uploads/2017/06/Truth-BBQ-meats.jpg'
     },
     {
       name: 'Funny Taco',
-      description: 'Tacos all kinds'
+      description: 'Tacos all kinds',
+      img_url: 'https://pinchofyum.com/wp-content/uploads/Chicken-Tinga-Tacos-1-2.jpg'
     }
   ]);
   process.exit();
