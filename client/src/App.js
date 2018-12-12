@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 
-import ArtistView from './components/artistcomponents/ArtistView';
-import VendorView from './components/vendorcomponents/VendorView';
-import AreaView from './components/areacomponents/AreaView';
-import MainList from './components/maincomponents/MainList';
-import MapList from './components/mapcomponents/MapList';
-import LoginView from './components/logincomponents/LoginView';
+import ArtistView from './components/artist/ArtistView';
+import VendorView from './components/vendor/VendorView';
+import AreaView from './components/area/AreaView';
+import MainList from './components/main/MainList';
+import MapList from './components/map/MapList';
+import LoginView from './components/login/LoginView';
 import './App.css';
 import serv from './services/apiservices.js';
 

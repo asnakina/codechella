@@ -6,13 +6,9 @@ export default class ArtistView extends Component {
     super(props);
     this.state = {
       list: true
-
     }
-
   }
-
-
-
+  
   render() {
     return (
       <div>
