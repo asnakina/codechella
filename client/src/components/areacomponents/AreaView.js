@@ -11,10 +11,13 @@ export default class AreaView extends Component {
   }
 
   render() {
+    debugger;
     return (
       <div>
-          {this.state.list ? <AreaList
-            areas = {this.props.areas}/> : null}
+        <AreaList
+          areas = {this.props.areas}
+          artists = {this.props.artists}
+        />
        </div>
      )
   }

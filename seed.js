@@ -1,18 +1,22 @@
 const { User, Artist, Vendor, Area } = require('./models');
+// import imgStage1 from '../../images/imgStage1.jpg'
 
 async function seed() {
   const areas = await Area.bulkCreate([
     {
       name: 'Area 51',
-      img_url: './client/src/images/imgStage1.jpg'
+      img_url: 'http://dailytrojan.com/2015/04/20/in-photos-coachella-2015-and-the-stunning-stages/'
+      // img_url: '../../images/imgStage1.jpg'
     },
     {
       name: 'UFO',
-      img_url: './client/src/images/imgStage2.jpg'
+      img_url: 'https://innercircledistribution.files.wordpress.com/2014/05/coachella-2014-ask-media-productions-3959-2.jpg'
+      // img_url: '../../images/imgStage2.jpg'
     },
     {
       name: 'The Probe',
-      img_url: '/.client/src/images/imgStage3.jpg'
+      img_url: 'http://dailytrojan.com/2015/04/20/in-photos-coachella-2015-and-the-stunning-stages/'
+      // img_url: '../../images/imgStage3.jpg'
     }
   ], { returning: true });
   const artists = await Artist.bulkCreate([

@@ -24,7 +24,6 @@ class App extends Component {
     this.getAreas = this.getAreas.bind(this);
   }
 
-
   setView = (view) => {
     this.setState({
       screen: view
@@ -73,7 +72,6 @@ class App extends Component {
     }
   }
 
-
   render() {
     //switching between views
     let content;
@@ -88,7 +86,9 @@ class App extends Component {
        content = <VendorView vendors = {this.state.vendors || []} />;
        break;
       case 'areasView':
-       content = <AreaView areas={this.state.areas || []} />
+       content = <AreaView
+       areas={this.state.areas || []}
+       artists={this.state.artists || []}/>
        break;
       case 'mainView':
        content = <MainList />;
@@ -104,15 +104,14 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Codechella</h1>
-        <nav>
+          <nav>
            <button onClick={() => this.setView('mainView')} className="navBtn">Main</button>
            <button onClick={() => this.setView('mapView')} className="navBtn">Map</button>
            <button onClick={() => this.setView('artistsView')} className="navBtn">Artists</button>
            <button onClick={() => this.setView('vendorsView')} className="navBtn">Vendors</button>
            <button onClick={() => this.setView('areasView')} className="navBtn">Areas</button>
            <button onClick={() => this.setView('loginView')} className="navBtn">Login/Register</button>
-
-        </nav>
+          </nav>
         { content }
       </div>
     );
