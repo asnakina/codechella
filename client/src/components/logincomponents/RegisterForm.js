@@ -19,9 +19,9 @@ export default class RegisterForm extends Component {
    const emailVal = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
    const { validate } = this.state
      if (emailVal.test(e.target.value)) {
-       validate.emailState = 'has-success'
+       validate.emailState = 'good'
      } else {
-       validate.emailState = 'has-danger'
+       validate.emailState = 'bad'
      }
      this.setState({ validate })
    }
@@ -63,8 +63,8 @@ export default class RegisterForm extends Component {
                id="exampleEmail"
                placeholder="myemail@email.com"
                value={ email }
-               valid={ this.state.validate.emailState === 'has-success' }
-               invalid={ this.state.validate.emailState === 'has-danger' }
+               valid={ this.state.validate.emailState === 'good' }
+               invalid={ this.state.validate.emailState === 'bad' }
                onChange={ (e) => {
                            this.validateEmail(e)
                            this.handleChange(e)

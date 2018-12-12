@@ -5,7 +5,7 @@ export default function MainList(props) {
   return (
     <div className="main">
         <h1>Music Festival</h1>
-        <img src={imgMain} className="imgMain" />
+        <img src={imgMain} alt={props.imgMain} className="imgMain" />
     </div>
   )
 }

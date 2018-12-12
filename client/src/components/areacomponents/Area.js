@@ -7,7 +7,7 @@ export default function Area(props) {
     <div onClick={() => props.handleChange(props.id)}>
        <h3>{props.name}</h3>
        <div>
-         <img src={props.img_url} className="area" />
+         <img src={props.img_url} alt={props.img_url} className="area" />
        </div>
     </div>
    )
