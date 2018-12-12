@@ -4,6 +4,7 @@ import { Button } from 'reactstrap';
 import ArtistView from './components/artist/ArtistView';
 import VendorView from './components/vendor/VendorView';
 import AreaView from './components/area/AreaView';
+import ProfileView from './components/profile/ProfileView';
 import MainList from './components/main/MainList';
 import MapList from './components/map/MapList';
 import LoginView from './components/login/LoginView';
@@ -98,6 +99,9 @@ class App extends Component {
       case 'loginView':
        content = <LoginView />;
        break;
+       case 'profileView':
+        content = <ProfileView />;
+        break;
 
       default:
        content = <MainList />;
@@ -105,15 +109,17 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Codechella</h1>
+
+
         <header>
-           <button onClick={() => this.setView('mainView')} className="navBtn">Main</button>
+
+           <a href="Home"><img src={ require('./images/codechella.png') } alt={'home'} onClick={() => this.setView('mainView')} /></a>
            <button onClick={() => this.setView('mapView')} className="navBtn">Map</button>
            <button onClick={() => this.setView('artistsView')} className="navBtn">Artists</button>
            <button onClick={() => this.setView('vendorsView')} className="navBtn">Vendors</button>
            <button onClick={() => this.setView('areasView')} className="navBtn">Areas</button>
            <Button bsstyle="success" className="lgnBtn" onClick={() => this.setView('loginView')}>Login/Register</Button>
-
+          <Button bsstyle="success" className="lgnBtn" onClick={() => this.setView('profileView')}>Profile</Button>
         </header>
         { content }
       </div>
