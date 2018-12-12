@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Area from './Area';
 import './Area.css';
-import AreaModel from './AreaModel'
+import AreaModal from './AreaModal'
 // import serv from './services/apiservices.js';
 
 class AreaList extends Component {

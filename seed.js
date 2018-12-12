@@ -5,7 +5,7 @@ async function seed() {
   const areas = await Area.bulkCreate([
     {
       name: 'Area 51',
-      img_url: 'http://dailytrojan.com/2015/04/20/in-photos-coachella-2015-and-the-stunning-stages/'
+      img_url: 'https://innercircledistribution.files.wordpress.com/2014/05/coachella-2014-ask-media-productions-4598-6.jpg'
       // img_url: '../../images/imgStage1.jpg'
     },
     {
@@ -15,8 +15,23 @@ async function seed() {
     },
     {
       name: 'The Probe',
-      img_url: 'http://dailytrojan.com/2015/04/20/in-photos-coachella-2015-and-the-stunning-stages/'
+      img_url: 'https://innercircledistribution.files.wordpress.com/2014/05/coachella-2014-ask-media-productions-4709-8.jpg'
       // img_url: '../../images/imgStage3.jpg'
+    },
+    {
+      name: 'Area 2',
+      img_url: 'https://innercircledistribution.files.wordpress.com/2014/05/coachella-2014-ask-media-productions-4857-10.jpg'
+      // img_url: '../../images/imgStage1.jpg'
+    },
+    {
+      name: 'Area 51',
+      img_url: 'https://innercircledistribution.files.wordpress.com/2014/05/coachella-2014-ask-media-productions-4669-7.jpg'
+      // img_url: '../../images/imgStage1.jpg'
+    },
+    {
+      name: 'Area 51',
+      img_url: 'https://innercircledistribution.files.wordpress.com/2014/05/coachella-2014-ask-media-productions-4442-3.jpg'
+      // img_url: '../../images/imgStage1.jpg'
     }
   ], { returning: true });
   const artists = await Artist.bulkCreate([
