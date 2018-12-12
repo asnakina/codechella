@@ -77,37 +77,14 @@ class App extends Component {
 
   render() {
     //switching between views
-    let content;
-    switch (this.state.screen) {
-      case 'mapView':
-       content = <MapList />;
-       break;
-      case 'artistsView':
-       content = <ArtistView artists={this.state.artists || []} />;
-       break;
-      case 'vendorsView':
-       content = <VendorView vendors = {this.state.vendors || []} />;
-       break;
-      case 'areasView':
-       content = <AreaView areas={this.state.areas || []} />
-       break;
-      case 'mainView':
-       content = <MainList />;
-       break;
-      case 'loginView':
-       content = <LoginView />;
-       break;
-
-      default:
-       content = <MainList />;
-    }
+    
 
     return (
       <div className="App">
         <h1>Codechella</h1>
         <Nav />
 
-        { content }
+
       </div>
     );
   }
