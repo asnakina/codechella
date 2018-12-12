@@ -1,6 +1,5 @@
 .VendorList {
   width: 79vmin;
-  height: 79vmin;
   display: grid;
   grid-template-columns: repeat(3,25vmin);
   grid-gap: 2vmin;
