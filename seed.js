@@ -1,10 +1,11 @@
 const { User, Artist, Vendor, Area } = require('./models');
+import imgStage1 from './imgStage1.jpg'
 
 async function seed() {
   const areas = await Area.bulkCreate([
     {
       name: 'Area 51',
-      img_url: './client/src/images/imgStage1.jpg'
+      img_url: '../client/src/images/imgStage1.jpg'
     },
     {
       name: 'UFO',
@@ -70,6 +71,24 @@ async function seed() {
       timeslot: '3',
       img_url: 'https://1n9mch40qwp25b0ca1wk6bt6-wpengine.netdna-ssl.com/wp-content/uploads/2017/06/Enrique-Iglesias.png'
     }
+<<<<<<< HEAD
+  ]);
+  const areas = await Area.bulkCreate([
+    {
+      name: 'Area 51',
+        img_url: 'imgStage1'
+        // img_url: './client/src/images/imgStage1.jpg'
+    },
+    {
+      name: 'UFO',
+      img_url: './client/src/images/imgStage2.jpg'
+    },
+    {
+      name: 'The Probe',
+      img_url: '/.client/src/images/imgStage3.jpg'
+    }
+  ]);
+=======
   ], {
     individualHooks: true
   });
@@ -77,6 +96,7 @@ async function seed() {
   Artist.afterCreate(async (artist, options) => {
     return await artist.setArea(areaData[artist.id%3]);
   });
+>>>>>>> 5212f783d5173592d0cd958590fbf8a32e622e09
   const vendors = await Vendor.bulkCreate([
     {
       name: 'Vaguen',
