@@ -27,7 +27,7 @@ export default class VendorView extends Component {
   render() {
     return (
       <div>
-      <h2 className="header">LINEUP</h2>
+      <h2 className="header">VENDORS</h2>
       {!this.state.vendor ?
         <VendorList
           vendors={this.props.vendors}
