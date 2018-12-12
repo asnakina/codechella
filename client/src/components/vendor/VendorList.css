@@ -1,4 +1,4 @@
-.vendor-list {
+.VendorList {
   width: 79vmin;
   height: 79vmin;
   display: grid;
@@ -7,7 +7,7 @@
   margin: 0 auto;
 }
 
-.vendor {
+.Vendor {
   width: 25vmin;
   height: 25vmin;
   position: relative;
@@ -18,7 +18,7 @@
   overflow: hidden;
 }
 
-.vendor img {
+.Vendor img {
   width: 25vmin;
   height: 25vmin;
   position: absolute;
@@ -32,13 +32,13 @@
   text-align: center;
 }
 
-.vendor img:hover {
+.Vendor img:hover {
   width: 26vmin;
   height: 26vmin;
 
 }
 
-.vendor h3 {
+.Vendor h3 {
   color: grey;
   z-index: 1000;
   font-family: 'Lato';

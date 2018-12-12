@@ -1,6 +1,6 @@
 import React from 'react';
 import Artist from './Artist';
-import './Artist.css';
+import './ArtistList.css';
 
 export default function ArtistList(props) {
   return (

@@ -4,7 +4,7 @@ import './VendorList.css';
 export default function Vendor(props) {
   return (
 <div id="wrapper">
-<div className="vendor">
+<div className="Vendor">
 
 <div className="img_wrapper">
 <img alt={props.vendor.name} src={props.vendor.img_url}/>
