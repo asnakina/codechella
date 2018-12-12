@@ -1,5 +1,6 @@
 import React from 'react';
 import './Area.css';
+// import img_url from '../../images/imgStage1.jpg'
 
 export default function Area(props) {
   return (
