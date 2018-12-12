@@ -5,6 +5,18 @@ const bcrypt = require('bcryptjs')
 
 const usersRouter = express.Router();
 
+
+usersRouter.get('/all', async (req, res) => {
+  try {
+    const users = await User.findAll();
+    res.json(users);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({
+      message: e.message
+    })
+  }
+});
 usersRouter.get('/', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
     res.json(req.user)
@@ -37,25 +49,22 @@ usersRouter.post('/register', async (req, res) => {
 usersRouter.post('/login', async (req, res) => {
   try {
     const { username, password } = req.body;
-    const user = await User.findOne({ where: { username } });
+    const user = await User.find({where: { username }});
     const passwordValid = await bcrypt.compare(password, user.password);
-    const { id, ticket } = user;
+    const { id } = user;
     if (passwordValid) {
       const token = sign({
-        id, username, ticket
+        id,
+        username
       });
-      res.json({token});
-    }
-    else {
+      res.json({ token });
+    } else {
       throw Error('Invalid credentials!');
     }
-  } catch (e) {
-    console.error(e);
-    res.status(401).json({
-      msg: e.message
-    });
-    }
-  });
+  } catch(e) {
+    res.status(401).json({msg: e.message});
+  }
+});
 
   usersRouter.post('/login', async (req, res) => {
     try {

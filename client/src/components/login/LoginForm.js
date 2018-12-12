@@ -6,13 +6,14 @@ export default class LoginForm extends Component {
   constructor(props) {
    super(props);
      this.state = {
-     'email': '',
-     'password': '',
+     email: '',
+     password: '',
      validate: {
        emailState: '',
      },
    }
    this.handleChange = this.handleChange.bind(this);
+   this.submitForm = this.submitForm.bind(this);
  }
 
  validateEmail(e) {
@@ -48,6 +49,9 @@ const { validate } = this.state
 
  submitForm(e) {
    e.preventDefault();
+   let username = this.state.email;
+   let password = this.state.password;
+   this.props.login({username, password});
  }
 
  render() {
@@ -55,7 +59,7 @@ const { validate } = this.state
    return (
      <Container className="login-box">
        <h2>Sign In</h2>
-       <Form className="form" onSubmit={ (e) => this.submitForm(e) }>
+       <Form className="form" onSubmit={this.submitForm}>
          <Col>
            <FormGroup>
              <Label>Username</Label>
@@ -73,8 +77,8 @@ const { validate } = this.state
                          } }
              />
 
-             <FormFeedback invalid>
-               Invalid Login
+             <FormFeedback valid>
+               Sweet
              </FormFeedback>
              <FormText></FormText>
            </FormGroup>
@@ -96,8 +100,8 @@ const { validate } = this.state
                          } }
            />
 
-           <FormFeedback invalid>
-             Incorrect Login
+           <FormFeedback valid>
+             valid Login
            </FormFeedback>
            <FormText> </FormText>
            </FormGroup>
