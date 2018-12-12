@@ -33,7 +33,7 @@
   text-align: center;
 }
 
-.Vendor img:hover {
+.Vendor:hover > img {
   transform: scale(1.05);
 }
 
@@ -68,4 +68,5 @@
 
 .Vendor:hover .favebutton {
  opacity: 1;
+ cursor: pointer;
 }
