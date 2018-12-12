@@ -23,19 +23,18 @@
   height: 25vmin;
   position: absolute;
   top: 0;
+  left: 0;
   object-fit: cover;
   margin-left: auto;
   margin-right: auto;
-  mix-blend-mode: color-burn;
+  filter: grayscale(25%);
   transition: all 0.3s;
   transform-origin: center;
   text-align: center;
 }
 
 .Vendor img:hover {
-  width: 26vmin;
-  height: 26vmin;
-
+  transform: scale(1.05);
 }
 
 .Vendor h3 {
@@ -54,15 +53,19 @@
 .favebutton {
  width:100%;
  height:20%;
- background-color:orange;
+ background-image: linear-gradient(to right bottom, #95a7c3, #93a4de, #a38cf3, #c69efd, #f277f9);
  border:none;
  color:white;
  font-weight:bold;
- font-size:17px;
+ font-size:2vmin;
  opacity: 0;
+ position: absolute;
+ top: 20vmin;
+ left: 0;
+ font-family: 'Lato';
+ font-weight: 200;
 }
 
-.img_wrapper:hover .favebutton {
+.Vendor:hover .favebutton {
  opacity: 1;
-
 }
