@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Button } from 'reactstrap';
 import ArtistView from './components/artistcomponents/ArtistView';
 import VendorView from './components/vendorcomponents/VendorView';
 import AreaView from './components/areacomponents/AreaView';
@@ -7,6 +7,7 @@ import MainList from './components/maincomponents/MainList';
 import MapList from './components/mapcomponents/MapList';
 import LoginView from './components/logincomponents/LoginView';
 import RegisterView from './components/logincomponents/RegisterView';
+import Nav from './components/navcomponent/Nav';
 import './App.css';
 import serv from './services/apiservices.js';
 
@@ -104,15 +105,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Codechella</h1>
-        <nav>
-           <button onClick={() => this.setView('mainView')} className="navBtn">Main</button>
-           <button onClick={() => this.setView('mapView')} className="navBtn">Map</button>
-           <button onClick={() => this.setView('artistsView')} className="navBtn">Artists</button>
-           <button onClick={() => this.setView('vendorsView')} className="navBtn">Vendors</button>
-           <button onClick={() => this.setView('areasView')} className="navBtn">Areas</button>
-           <button onClick={() => this.setView('loginView')} className="navBtn">Login/Register</button>
+        <Nav />
 
-        </nav>
         { content }
       </div>
     );

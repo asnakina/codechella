@@ -8,7 +8,7 @@ async function seed() {
       img_url: '../client/src/images/imgStage1.jpg'
     },
     {
-      name: 'UFO',
+      name: 'Motherland',
       img_url: './client/src/images/imgStage2.jpg'
     },
     {
