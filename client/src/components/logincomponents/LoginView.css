@@ -1,0 +1,9 @@
+.loginview-box{
+  display: grid;
+  grid-template-columns: repeat(2,50vmin);
+  width: 100vmin;
+  height: 100vmin;
+  grid-gap: 5vmin;
+  margin: 0 auto;
+
+}
