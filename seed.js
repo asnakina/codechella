@@ -49,19 +49,19 @@ async function seed() {
     },
     {
       name: 'Lorde',
-      description: 'Lorde chose her stage name because she was fascinated with "royals and aristocracy". However, she felt the name Lord was too masculine, thus she added an "e" to make it more feminine. She described her public image as coming "naturally" to her.',
+      description: 'Lorde chose her stage name because she was fascinated with "royals and aristocracy". However, she felt the name Lord was too masculine, thus she added an "e" to make it more feminine.',
       timeslot: '1',
       img_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/RF_3006_Lorde%40Arena_Krists_Luhaers-4_%2835731259842%29_%28cropped%29.jpg/1200px-RF_3006_Lorde%40Arena_Krists_Luhaers-4_%2835731259842%29_%28cropped%29.jpg'
     },
     {
       name: 'Janelle Monae',
-      description: 'Janelle Monáe Robinson (/dʒəˈnɛl moʊˈneɪ/;[8] born December 1, 1985)[9] is an American singer, songwriter, actress, and producer.',
+      description: 'Janelle Monae Robinson is an American singer, songwriter, actress, and producer.',
       timeslot: '2',
       img_url: 'https://media.timeout.com/images/105232498/image.jpg'
     },
     {
       name: 'Adele',
-      description: 'Adele Laurie Blue Adkins MBE (/əˈdɛl/; born 5 May 1988) is an English singer and songwriter. She was the first female artist to simultaneously have two albums in the top five of the Billboard 200.',
+      description: 'Adele Laurie Blue Adkins is an English singer and songwriter. She was the first female artist to simultaneously have two albums in the top five of the Billboard 200.',
       timeslot: '2',
       img_url: 'https://akns-images.eonline.com/eol_images/Entire_Site/2017210/rs_1024x759-170310161215-1024.Adele-Lipstick-Primer.jl.031017.jpg?fit=inside|900:auto&output-quality=90'
     },
@@ -73,19 +73,19 @@ async function seed() {
     },
     {
       name: 'Miguel',
-      description: 'Miguel Jontel Pimentel (born October 23, 1985) is an American singer and songwriter.',
+      description: 'Miguel Jontel Pimentel is an American singer and songwriter.',
       timeslot: '3',
       img_url: 'https://timedotcom.files.wordpress.com/2017/11/miguel-protesting-prisons.jpg'
     },
     {
       name: 'FIDLAR',
-      description: 'Fidlar, stylized as FIDLAR, is a punk rock band from Los Angeles, California. The band is currently signed to Mom + Pop Music in the US,[1] Wichita Recordings in the UK[2] and Dine Alone Records in Canada.',
+      description: 'Fidlar, stylized as FIDLAR, is a punk rock band from Los Angeles, California. The band is currently signed to Mom + Pop Music in the US, Wichita Recordings in the UK and Dine Alone Records in Canada.',
       timeslot: '3',
       img_url: 'http://diymag.com/media/img/Artists/F/Fidlar/_1500x1000_crop_center-center_75/fidlar_philsmithies_diy_20150605_2047x1365.jpg'
     },
     {
       name: 'Enrique Iglesias',
-      description: 'Enrique Iglesias is a Spanish singer, songwriter, actor and record producer.He is widely regarded as the King of Latin Pop',
+      description: 'Enrique Iglesias is a Spanish singer, songwriter, actor and record producer. He is widely regarded as the King of Latin Pop.',
       timeslot: '3',
       img_url: 'https://1n9mch40qwp25b0ca1wk6bt6-wpengine.netdna-ssl.com/wp-content/uploads/2017/06/Enrique-Iglesias.png'
     }

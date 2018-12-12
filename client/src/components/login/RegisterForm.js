@@ -6,8 +6,8 @@ export default class RegisterForm extends Component {
   constructor(props) {
    super(props);
      this.state = {
-     'email': '',
-     'password': '',
+     email: '',
+     password: '',
      validate: {
        emailState: '',
      },
@@ -60,7 +60,7 @@ export default class RegisterForm extends Component {
              <Input
                type="email"
                name="email"
-               id="exampleEmail"
+               id="exampleRegisterEmail"
                placeholder="myemail@email.com"
                value={ email }
                valid={ this.state.validate.emailState === 'good' }
@@ -85,7 +85,7 @@ export default class RegisterForm extends Component {
              <Input
                type="password"
                name="password"
-               id="examplePassword"
+               id="exampleRegisterPassword"
                placeholder="******"
                value={ password }
                valid={ this.state.validate.passwordState === 'good' }

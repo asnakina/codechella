@@ -7,7 +7,6 @@ export default class LoginView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentUser: null,
       formData: {
         username: '',
         password: ''
@@ -15,10 +14,12 @@ export default class LoginView extends Component {
       userView: 'register',
       loggedIn: false,
       token: null,
+      currentUser: null
     }
     this.handleChange = this.handleChange.bind(this);
     this.register = this.register.bind(this);
     this.login = this.login.bind(this);
+    this.buildHeaders = this.buildHeaders.bind(this);
   }
 
 
@@ -26,28 +27,26 @@ export default class LoginView extends Component {
   buildHeaders() {
     const { token } = this.state;
     return {
-      headers: {
         'Authorization': `Bearer ${token}`
-      }
     };
   }
 
   async getCurrentUser() {
     try {
       const headers = this.buildHeaders();
-      const user = await serv.getUsers({...headers});
+      const user = await serv.getUser(headers);
       this.setState({
         loggedIn: true,
-        currentUser: user.data.user
+        currentUser: user
       });
     } catch(e) {
       console.log(e);
     }
   }
 
-  componentDidMount = async () => {
-    await this.getCurrentUser();
-  }
+  // componentDidMount = async () => {
+  //   await this.getCurrentUser();
+  // }
 
   handleChange(ev) {
     const { name, value } = ev.target;
@@ -59,14 +58,14 @@ export default class LoginView extends Component {
     }));
   }
 
-  async login(ev) {
-    ev.preventDefault();
-    const { username, password } = this.state.formData;
+  async login(data) {
+    const headers = this.buildHeaders();
+    const { username, password } = data;
     const resp = await serv.loginUser(
-      {username, password}
+      {username, password}, headers
     );
-
-    this.setState({token: resp.data.token})
+    const token = resp.token;
+    this.setState({token})
     this.getCurrentUser();
   }
   async register(ev) {
@@ -79,8 +78,7 @@ export default class LoginView extends Component {
   render() {
     return (
       <div className="loginview-box">
-
-      <LoginForm />
+      <LoginForm login={this.login}/>
       <RegisterForm />
       </div>
     )

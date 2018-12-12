@@ -60,12 +60,21 @@ const BASE_URL = 'http://localhost:3001';
   const vendor = await axios.delete(`${BASE_URL}/vendors/${id}`);
   return vendor.data;
 }
-const getUsers = async () => {
- const users = await axios.get(`${BASE_URL}/users/`);
- return users.data;
+const getUser = async (headers) => {
+  const user = await axios({
+    method: 'get',
+    url: `${BASE_URL}/users/`,
+    headers: headers
+  });
+ return user.data;
 }
-const loginUser = async (data) => {
- const user = await axios.post(`${BASE_URL}/users`,data);
+const loginUser = async (data, headers) => {
+ const user = await axios({
+   method: 'post',
+   url: `${BASE_URL}/users/login`,
+   data: data,
+   headers: headers
+ });
  return user.data;
 }
 const registerUser = async (data) => {
@@ -88,5 +97,5 @@ export default {
   removeVendor,
   loginUser,
   registerUser,
-  getUsers
+  getUser
 }
