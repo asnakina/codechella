@@ -1,28 +1,28 @@
 import React from 'react';
 
-
-
 function RegisterForm(props) {
   return (
-    <form onSubmit={props.onSubmit} className="register-form">
-      <label>
-        Username:
-        <input type='text'
-          name='name'
-          value={props.name}
-          onChange={props.onChange} />
-      </label>
-      <label>
-        Password:
-        <input
-          type='text'
-          name='password'
-          value={props.hometown}
-          onChange={props.onChange} />
-      </label>
+    <form
+   className="register-form"
+   onSubmit={props.handleSubmit}>
+   <label htmlFor="username">Username</label>
+   <input
+     type="text"
+     id="username"
+     name="username"
+     onChange={props.handleChange}
+     value={props.username} />
+   <label htmlFor="password">Password</label>
+   <input
+     type="password"
+     id="password"
+     name="password"
+     onChange={props.handleChange}
+     value={props.password} />
 
-      <button type="submit">Submit</button>
-    </form>
+   <input type="submit" value="Register" />
+   <button onClick={props.swapUserForm}>Login</button>
+ </form>
   )
 }
 export default RegisterForm;
