@@ -11,7 +11,6 @@ export default class AreaView extends Component {
   }
 
   render() {
-    debugger;
     return (
       <div>
         <AreaList
