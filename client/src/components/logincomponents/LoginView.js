@@ -16,11 +16,9 @@ export default class LoginView extends Component {
 
   render() {
     return (
-      <div>
-      Please Login
-      <LoginForm />
+      <div className="loginview-box">
 
-      Please Register
+      <LoginForm />
       <RegisterForm />
       </div>
     )
