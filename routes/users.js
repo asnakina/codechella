@@ -34,29 +34,43 @@ usersRouter.post('/register', async (req, res) => {
   }
 );
 
-usersRouter.post('/login', async (req, res) => {
-  try {
-    const { username, password } = req.body;
-    const user = await User.findOne({ where: { username } });
-    const passwordValid = await bcrypt.compare(password, user.password);
-    const { id, ticket } = user;
-    if (passwordValid) {
+// usersRouter.post('/login', async (req, res) => {
+//   try {
+//     const { username, password } = req.body;
+//     const user = await User.findOne({ where: { username } });
+//     const passwordValid = await bcrypt.compare(password, user.password);
+//     const { id, ticket } = user;
+//     if (passwordValid) {
+//       const token = sign({
+//         id, username, ticket
+//       });
+//       res.json({token});
+//     }
+//     else {
+//       throw Error('Invalid credentials!');
+//     }
+//   } catch (e) {
+//     console.error(e);
+//     res.status(401).json({
+//       msg: e.message
+//     });
+//     }
+//   });
+
+  usersRouter.post('/login', async (req, res) => {
+    try {
+      const user = await User.create(req.body);
+      const { id, username } = user.dataValues;
       const token = sign({
-        id, username, ticket
+        id,
+        username
       });
-      res.json({token});
-    }
-    else {
-      throw Error('Invalid credentials!');
-    }
-  } catch (e) {
-    console.error(e);
-    res.status(401).json({
-      msg: e.message
-    });
+      res.json({user, token});
+    } catch(e) {
+      console.log(e);
+      res.status(401).json({msg: e.message});
     }
   });
-
 usersRouter.get('/artists', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
     const user = await User.findOne({
