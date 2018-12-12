@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AreaList from './AreaList';
 import AreaModal from './AreaModal';
-// import serv from '../services/apiservices.js';
 // import { Modal, Button } from 'antd';
 
 export default class AreaView extends Component {
@@ -18,7 +17,8 @@ export default class AreaView extends Component {
 
   handleChange(selectedArea) {
     this.setState({
-      selectedArea
+      selectedArea,
+      areaModalVisibility: true
     });
   }
 
@@ -28,18 +28,20 @@ export default class AreaView extends Component {
     })
   }
 
+
   render() {
     console.log(this.props.areas);
     let areaModalVisibility = this.state.areaModalVisibility
     return (
       <div>
-      {this.state.selectedArea ?
+      {this.state.areaModalVisibility ?
         <AreaModal
            id={this.state.selectedArea}
            artists={this.props.artists.filter(artist => artist.area_id === this.state.selectedArea)}
            vendors={this.props.vendors.filter(vendor => vendor.area_id === this.state.selectedArea)}
            setModalVisibility={this.setModalVisibility}
-           visible={areaModalVisibility}
+           /*visible={areaModalVisibility}*/
+            areas = {this.props.areas}
         /> :
         <AreaList
            areas = {this.props.areas}

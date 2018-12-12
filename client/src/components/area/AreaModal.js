@@ -3,49 +3,44 @@ import Artist from '../artist/Artist';
 import Vendor from '../vendor/Vendor';
 // import { Modal } from 'reactstrap';
 // import { Modal, Button } from 'antd';
+// import AreaModalChild from './AreaModalChild';
 
-export default function AreaModal(props) {
-  // showModal = () => {
-  //   this.setState({
-  //     areaModalVisibility: true,
-  //   });
-  // }
+export default class AreaModal extends React.Component {
+  constructor(props) {
+    super(props);
+      this.handleClose = this.handleClose.bind(this);
+  }
 
-  // handleClose = (e) => {
-  //   props.setModalVisibility(false)
-  // }
-  //
-  // handleChange = (e) => {
-  //   this.setState({
-  //     areaModalVisibility: false
-  //   });
+  handleClose = (e) => {
+    this.props.setModalVisibility(false)
+  }
 
+render() {
   return (
-    <div className="static-modal">
-    {/*<Modal.Dialog>
-      <Modal.Header>
-        <button>Close</button>
-        </Modal.Header>
-        <Modal.Body>*/}
-          <div>{props.artists.map((artist) => {
-            return (
-        <Artist artist={artist} />
-      )
-    })}
-    {props.vendors.map((vendor) => {
-      return (
-        <Vendor vendor={vendor} />
-      )
-    })}
-    </div>
-    {/*</Modal.Body>
-    </Modal.Dialog>*/}
-     </div>
-  );
-}
+    <div>
+    <button onClick={this.handleClose}>Close</button>
 
-// import { Modal, Button } from antd;
-//
-// class AreaModal extends React.Component {
-//   state = { visible: false }
-// }
+    <h1>Modal</h1>
+      <div className="static-modal">
+        <div>{this.props.artists.map((artist) => {
+                return (
+                  <Artist artist={artist} />
+                )
+              })}
+              {this.props.vendors.map((vendor) => {
+                return (
+                  <Vendor vendor={vendor} />
+                )
+              })}
+       </div>
+     </div>
+   </div>
+
+  );
+ }
+}
+/*<Modal title="Welcome"
+       visible={this.props.visible}
+       onCancel={this.handleClose}>*/
+
+        /*</Modal>*/
