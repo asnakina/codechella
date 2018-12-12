@@ -156,8 +156,8 @@ async function seed() {
       ticket: 'VIP'
     },
     {
-      username: 'alberto',
-      password: 'fyre',
+      username: 'a@a.com',
+      password: 'Qwerty123!',
       ticket: 'VIP'
     },
     {
