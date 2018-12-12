@@ -1,16 +1,20 @@
 import React from 'react';
+import Artist from '../artist/Artist';
+import Vendor from '../vendor/Vendor';
 
 export default function AreaModal(props) {
-    const mapArtists = props.artists.filter(theArtist => theArtist.areas_id === props.selectedArea).map((artist) => {
-      return (
-        <div key={artist.id}>
-           <p>{props.artists.name}</p>
-           <p>{props.artists.timeslot}</p>
-        </div>
-      );
-    }
-  );
   return (
-    <div>{mapArtists}</div>
+    <div>{props.artists.map((artist) => {
+      return (
+        <Artist artist={artist} />
+      )
+    })}
+    {props.vendors.map((vendor) => {
+      return (
+        <Vendor vendor={vendor} />
+      )
+    })}
+     </div>
   );
 }
+    //       <p>{artist.timeslot}</p>

@@ -88,7 +88,9 @@ class App extends Component {
       case 'areasView':
        content = <AreaView
        areas={this.state.areas || []}
-       artists={this.state.artists || []}/>
+       artists={this.state.artists || []}
+       vendors={this.state.vendors || []}
+       />
        break;
       case 'mainView':
        content = <MainList />;
