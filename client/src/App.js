@@ -18,11 +18,17 @@ class App extends Component {
       screen: 'mainView',
       artists: '',
       vendors: '',
-      areas: ''
+      areas: '',
+      token: localStorage.getItem('token') || '',
+      user: ''
     }
     this.getArtists = this.getArtists.bind(this);
     this.getVendors = this.getVendors.bind(this);
     this.getAreas = this.getAreas.bind(this);
+    this.login = this.login.bind(this);
+    this.register = this.register.bind(this);
+    this.buildHeaders = this.buildHeaders.bind(this);
+    this.getCurrentUser = this.getCurrentUser.bind(this);
   }
 
   setView = (view) => {
@@ -32,6 +38,7 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
+    if (this.state.token) await this.getCurrentUser();
     await this.getArtists();
     await this.getVendors();
     await this.getAreas();
@@ -73,6 +80,46 @@ class App extends Component {
     }
   }
 
+  buildHeaders() {
+    const { token } = this.state;
+    return {
+        'Authorization': `Bearer ${token}`
+    };
+  }
+
+  async getCurrentUser() {
+    try {
+      const headers = this.buildHeaders();
+      const user = await serv.getUser(headers);
+      await this.setState({user});
+    } catch(e) {
+      console.log(e);
+    }
+  }
+
+  async login(data) {
+    const headers = this.buildHeaders();
+    const { username, password } = data;
+    const resp = await serv.loginUser(
+      {username, password}, headers
+    );
+    const token = resp.token;
+    await this.setState({token})
+    await this.getCurrentUser();
+    localStorage.setItem('token',token);
+    this.setView('profileView');
+  }
+
+  async register(data) {
+    console.log(data);
+    const resp = await serv.registerUser(data);
+    await this.setState({token: resp.token});
+    await this.getCurrentUser();
+    localStorage.setItem('token',resp.token);
+    this.setView('profileView');
+  }
+
+
   render() {
     //switching between views
     let content;
@@ -97,30 +144,26 @@ class App extends Component {
        content = <MainList />;
        break;
       case 'loginView':
-		this.state.loggedIn ?
-		content = <ProfileView user={this.getCurrentUser()}/> :
-       content = <LoginView />;
-       break;
-       case 'profileView':
-        content = <ProfileView />;
+        content = <LoginView login={this.login} register={this.register}/>;
         break;
-
+      case 'profileView':
+        content = <ProfileView user={this.state.currentUser}/>;
+        break;
       default:
        content = <MainList />;
 }
     return (
       <div className="App">
-
-
         <header>
-
            <a><img src={ require('./images/codechella.png') } alt={'home'} onClick={() => this.setView('mainView')} /></a>
            <button onClick={() => this.setView('mapView')} className="navBtn">Map</button>
            <button onClick={() => this.setView('artistsView')} className="navBtn">Artists</button>
            <button onClick={() => this.setView('vendorsView')} className="navBtn">Vendors</button>
            <button onClick={() => this.setView('areasView')} className="navBtn">Areas</button>
-           <Button bsstyle="success" className="lgnBtn" onClick={() => this.setView('loginView')}>Login/Register</Button>
-          <Button bsstyle="success" className="lgnBtn" onClick={() => this.setView('profileView')}>Profile</Button>
+           {this.state.user ?
+             <button onClick={() => this.setView('profileView')} className="navBtn">Profile</button> :
+             <button onClick={() => this.setView('loginView')} className="navBtn">Login/Register</button>
+            }
         </header>
         { content }
       </div>

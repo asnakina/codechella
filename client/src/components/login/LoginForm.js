@@ -6,11 +6,11 @@ export default class LoginForm extends Component {
   constructor(props) {
    super(props);
      this.state = {
-     email: '',
-     password: '',
-     validate: {
-       emailState: '',
-     },
+       email: '',
+       password: '',
+       validate: {
+         emailState: '',
+       }
    }
    this.handleChange = this.handleChange.bind(this);
    this.submitForm = this.submitForm.bind(this);
