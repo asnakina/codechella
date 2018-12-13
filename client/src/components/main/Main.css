@@ -29,3 +29,29 @@ div .imgMain {
   height: 76vh;
   object-fit: cover;
 }
+
+.mainName {
+  width: 70vmin;
+  height: 15vmin;
+  position: absolute;
+  margin-right: 20vw;
+  flex: 0 0 5;
+  align-self: flex-start;
+  filter: invert(1);
+  text-align: center;
+  top: 30vmin;
+  right: 21vmin;
+  opacity: 0.9;
+
+}
+
+.main > h3 {
+  width: 100vw;
+  height: 30px;
+  color: white;
+  margin: 0 auto;
+  margin-top: 20px;
+  /* justify-content: center; */
+  text-align: center;
+  background-image: linear-gradient(to right bottom, #95a7c3, #93a4de, #a38cf3, #c69efd, #f277f9);
+}

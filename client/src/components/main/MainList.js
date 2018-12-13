@@ -8,8 +8,6 @@ import imgMain6 from '../../images/imgMain6.jpg';
 import imgMain7 from '../../images/imgMain7.jpg';
 import imgMain8 from '../../images/imgMain8.jpg';
 import imgMain9 from '../../images/imgMain9.jpg';
-import imgMain10 from '../../images/imgMain10.jpg';
-import imgMain11 from '../../images/imgMain11.jpg';
 import { Carousel } from 'antd';
 import './Main.css';
 
@@ -27,9 +25,10 @@ export default function MainList(props) {
             <div><img src={imgMain7} alt={props.imgMain} className="imgMain" /></div>
             <div><img src={imgMain8} alt={props.imgMain} className="imgMain" /></div>
             <div><img src={imgMain9} alt={props.imgMain} className="imgMain" /></div>
-            <div><img src={imgMain10} alt={props.imgMain} className="imgMain" /></div>
-            <div><img src={imgMain11} alt={props.imgMain} className="imgMain" /></div>
           </Carousel>
+          <span><img src={ require('../../images/codechella.png') } alt={'home'} className="mainName"/></span>
+          <h3>About Codechella:</h3>
+          <p>Young professionals from GA crack the code</p>
      </div>
    )
 }
