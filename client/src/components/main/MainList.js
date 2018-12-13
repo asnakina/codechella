@@ -8,15 +8,13 @@ import imgMain6 from '../../images/imgMain6.jpg';
 import imgMain7 from '../../images/imgMain7.jpg';
 import imgMain8 from '../../images/imgMain8.jpg';
 import imgMain9 from '../../images/imgMain9.jpg';
-import imgMain10 from '../../images/imgMain10.jpg';
-import imgMain11 from '../../images/imgMain11.jpg';
 import { Carousel } from 'antd';
 import './Main.css';
 
 export default function MainList(props) {
   return (
     <div className="main">
-       <h2 className="header">VALLEY MUSIC AND ARTS FESTIVAL</h2>
+       <h2 className="header">VALLEY  MUSIC  AND  ARTS  FESTIVAL</h2>
           <Carousel autoplay>
             <div><img src={imgMain1} alt={props.imgMain} className="imgMain" /></div>
             <div><img src={imgMain2} alt={props.imgMain} className="imgMain" /></div>
@@ -27,9 +25,14 @@ export default function MainList(props) {
             <div><img src={imgMain7} alt={props.imgMain} className="imgMain" /></div>
             <div><img src={imgMain8} alt={props.imgMain} className="imgMain" /></div>
             <div><img src={imgMain9} alt={props.imgMain} className="imgMain" /></div>
-            <div><img src={imgMain10} alt={props.imgMain} className="imgMain" /></div>
-            <div><img src={imgMain11} alt={props.imgMain} className="imgMain" /></div>
           </Carousel>
+          <span><img src={ require('../../images/codechella.png') } alt={'home'} className="mainName"/></span>
+          <h3>About Codechella:</h3>
+          <p>We are full-stack software developers from GA cracking the code, working with client- and server-sides,
+          databases and UI/UX design who know how to collaborate and rapidly build static and dynamic web apps.
+          Our industry software experts have months of experience building web sites and solutions for a number of projects.
+          We know our way around JavaScript, React, CSS, HTML, SQL, Express, Node.js, Sequelize.
+          </p>
      </div>
    )
 }

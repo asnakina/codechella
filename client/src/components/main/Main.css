@@ -14,7 +14,6 @@
   item-align: center;
   height: 76vh;
   width: 100vw;
-  /* width: 100%; */
   line-height: 160px;
   background: white;
   overflow: hidden;
@@ -28,4 +27,44 @@ div .imgMain {
   width: 100vw;
   height: 76vh;
   object-fit: cover;
+}
+
+.mainName {
+  width: 100vmin;
+  height: 20vmin;
+  position: absolute;
+  margin-right: 20vw;
+  flex: 0 0 5;
+  align-self: flex-start;
+  filter: invert(1);
+  text-align: center;
+  top: 30vmin;
+  right: 3vmin;
+  opacity: 0.9;
+}
+
+.main > h2 {
+  letter-spacing: inherit;
+}
+
+.main > h3 {
+  width: 100vw;
+  height: 40px;
+  color: white;
+  margin: 0 auto;
+  margin-top: 20px;
+  font-family: 'Lato';
+  text-align: center;
+  text-align: center;
+  background-image: linear-gradient(to right bottom, #95a7c3, #93a4de, #a38cf3, #c69efd, #f277f9);
+}
+
+.main > p {
+  width: 750px;
+  margin: 20px 350px;
+  /* float: center; */
+  font-size: 24px;
+  color: black;
+  font-family: 'Lato';
+  font-weight: 350;
 }
