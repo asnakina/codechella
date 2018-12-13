@@ -6,7 +6,9 @@ export default function Artist(props) {
     <div id={props.artist.name} className="Artist">
       <img onClick={props.onChange} alt={props.artist.name} src={props.artist.img_url}/>
       <h3 onClick={props.onChange}>{props.artist.name.toUpperCase()}</h3>
-      <span><input className="favebutton" type="button" value="Add to Favorites"/></span>
+      {props.isFavorite ?
+      <span><input className="favebutton" name={props.artist.id} type="button" value="Remove from Favorites" onClick={props.unfavoriteArtist}/></span> :
+      <span><input className="favebutton" name={props.artist.id} type="button" value="Add to Favorites" onClick={props.favoriteArtist}/></span>}
     </div>
   )
 }

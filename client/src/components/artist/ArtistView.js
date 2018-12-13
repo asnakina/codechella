@@ -32,7 +32,10 @@ export default class ArtistView extends Component {
       {!this.state.artist ?
         <ArtistList
           artists={this.props.artists}
-          onChange={this.handleModal}/> :
+          onChange={this.handleModal}
+          favoriteArtist={this.props.favoriteArtist}
+          unfavoriteArtist={this.props.unfavoriteArtist}
+          userArtists={this.props.userArtists}/> :
         <ArtistModal
           artist={this.state.artist}
           reset={this.resetModal}/>}

@@ -5,12 +5,14 @@ import './VendorList.css';
 export default function VendorList(props) {
   return (
     <div className="VendorList">
-
       {props.vendors.map(vendor => {
         return (
           <Vendor key={vendor.id}
           vendor={vendor}
-          onChange={props.onChange}/>
+          onChange={props.onChange}
+          favoriteVendor={props.favoriteVendor}
+          unfavoriteVendor={props.unfavoriteVendor}
+          isFavorite={props.userVendors.some(userVendor => vendor.id === userVendor.id)}/>
         )
       })}
     </div>

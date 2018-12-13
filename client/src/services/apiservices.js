@@ -69,6 +69,7 @@ const getUser = async (headers) => {
   });
  return user.data;
 }
+
 const loginUser = async (data, headers) => {
  const user = await axios({
    method: 'post',
@@ -78,11 +79,47 @@ const loginUser = async (data, headers) => {
  });
  return user.data;
 }
+
 const registerUser = async (data) => {
  const user = await axios.post(`${BASE_URL}/users/register`,data);
  return user.data;
 }
 
+const favoriteArtist = async (id, headers) => {
+  const user = await axios({
+    method: 'post',
+    url: `${BASE_URL}/users/artists/${id}`,
+    headers: headers
+  });
+  return user.data;
+}
+
+const unfavoriteArtist = async (id, headers) => {
+  const user = await axios({
+    method: 'delete',
+    url: `${BASE_URL}/users/artists/${id}`,
+    headers: headers
+  });
+  return user.data;
+}
+
+const favoriteVendor = async (id, headers) => {
+  const user = await axios({
+    method: 'post',
+    url: `${BASE_URL}/users/vendors/${id}`,
+    headers: headers
+  });
+  return user.data;
+}
+
+const unfavoriteVendor = async (id, headers) => {
+  const user = await axios({
+    method: 'delete',
+    url: `${BASE_URL}/users/vendors/${id}`,
+    headers: headers
+  });
+  return user.data;
+}
 
 export default {
   getAreas,
@@ -99,5 +136,9 @@ export default {
   removeVendor,
   loginUser,
   registerUser,
-  getUser
+  getUser,
+  favoriteArtist,
+  favoriteVendor,
+  unfavoriteArtist,
+  unfavoriteVendor
 }
