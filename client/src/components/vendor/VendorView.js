@@ -31,7 +31,7 @@ export default class VendorView extends Component {
       <h2 className="header">VENDORS</h2>
       {!this.state.vendor ?
         <VendorList
-          vendors={this.props.vendors}
+          vendors={this.props.vendors.filter(vendor => vendor.created_by <= 3)}
           onChange={this.handleModal}
           favoriteVendor={this.props.favoriteVendor}
           unfavoriteVendor={this.props.unfavoriteVendor}
@@ -40,6 +40,12 @@ export default class VendorView extends Component {
           vendor={this.state.vendor}
           reset={this.resetModal}/>}
           <h2 className="header">WILDCARDS</h2>
+        <VendorList
+          vendors={this.props.vendors.filter(vendor => vendor.created_by > 3)}
+          onChange={this.handleModal}
+          favoriteVendor={this.props.favoriteVendor}
+          unfavoriteVendor={this.props.unfavoriteVendor}
+          userVendors={this.props.userVendors}/>
         <VendorForm
           vendors={this.props.vendors}
           submit={this.props.submit}

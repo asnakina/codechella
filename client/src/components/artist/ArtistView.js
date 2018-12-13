@@ -31,7 +31,7 @@ export default class ArtistView extends Component {
       <h2 className="header">LINEUP</h2>
       {!this.state.artist ?
         <ArtistList
-          artists={this.props.artists.filter(artist => artist.timeslot !== null)}
+          artists={this.props.artists.filter(artist => artist.created_by <= 3)}
           onChange={this.handleModal}
           favoriteArtist={this.props.favoriteArtist}
           unfavoriteArtist={this.props.unfavoriteArtist}
@@ -41,7 +41,7 @@ export default class ArtistView extends Component {
           reset={this.resetModal}/>}
       <h2 className="header">WILDCARDS</h2>
         <ArtistList
-          artists={this.props.artists.filter(artist => artist.timeslot === null)}
+          artists={this.props.artists.filter(artist => artist.timeslot > 3)}
           onChange={this.handleModal}
           favoriteArtist={this.props.favoriteArtist}
           unfavoriteArtist={this.props.unfavoriteArtist}
