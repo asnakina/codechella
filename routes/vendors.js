@@ -24,7 +24,7 @@ vendorsRouter.get('/:id', async (req, res) => {
   }
 });
 
-vendorsRouter.post('/', async (req, res) => {
+vendorsRouter.post('/', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
     const vendor = await Vendor.create(req.body);
     res.json(vendor);

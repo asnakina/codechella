@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import VendorList from './VendorList';
 import VendorModal from './VendorModal';
+import VendorForm from './VendorForm';
 import './VendorList.css';
 
 export default class VendorView extends Component {
@@ -38,6 +39,11 @@ export default class VendorView extends Component {
         <VendorModal
           vendor={this.state.vendor}
           reset={this.resetModal}/>}
+          <h2 className="header">WILDCARDS</h2>
+        <VendorForm
+          vendors={this.props.vendors}
+          submitForm={this.submitForm}
+        />
       </div>
     )
   }
