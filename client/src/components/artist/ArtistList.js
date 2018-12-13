@@ -13,7 +13,9 @@ export default function ArtistList(props) {
           onChange={props.onChange}
           favoriteArtist={props.favoriteArtist}
           unfavoriteArtist={props.unfavoriteArtist}
-          isFavorite={props.userArtists.some(userArtist => artist.id === userArtist.id)}/>
+          isFavorite={props.userArtists ?
+            props.userArtists.some(userArtist => artist.id === userArtist.id) :
+          false}/>
         )
       })}
     </div>
