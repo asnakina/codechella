@@ -1,5 +1,6 @@
 const express = require('express');
 const { Artist } = require('../models');
+const { passport, sign } = require('../auth');
 
 const artistsRouter = express.Router();
 
@@ -25,7 +26,7 @@ artistsRouter.get('/:id', async (req, res) => {
   }
 });
 
-artistsRouter.post('/', async (req, res) => {
+artistsRouter.post('/', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
     const artist = await Artist.create(req.body);
     res.json(artist);

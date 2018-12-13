@@ -40,7 +40,7 @@ export default class ArtistForm extends Component {
   validateURL(e) {
     const urlVal = /^(?:([^:/?#]+):)?(?:([^/?#]*))?([^?#]*\.(?:jpg|gif|png))(?:\?([^#]*))?(?:#(.*))?$/
     const { urlState } = this.state;
-    if (urlVal.test(e.target.value)) {
+    if (urlVal.test(e.target.value) && e.target.value.length < 256) {
       this.setState({urlState: 'good'});
     } else {
       this.setState({urlState: 'bad'});
@@ -57,7 +57,7 @@ export default class ArtistForm extends Component {
         this.state.descState === 'good' &&
         this.state.urlState === 'good') {
           console.log('success!');
-          // this.props.submit({artist, description, img_url, timeslot});
+          this.props.submit({name, description, img_url, timeslot});
     }
   }
 
