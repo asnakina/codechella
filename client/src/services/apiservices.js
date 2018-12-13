@@ -60,6 +60,7 @@ const BASE_URL = 'http://localhost:3001';
   const vendor = await axios.delete(`${BASE_URL}/vendors/${id}`);
   return vendor.data;
 }
+
 const getUser = async (headers) => {
   const user = await axios({
     method: 'get',
@@ -81,6 +82,7 @@ const registerUser = async (data) => {
  const user = await axios.post(`${BASE_URL}/users/register`,data);
  return user.data;
 }
+
 
 export default {
   getAreas,
