@@ -28,11 +28,13 @@ export default function MainList(props) {
           </Carousel>
           <span><img src={ require('../../images/codechella.png') } alt={'home'} className="mainName"/></span>
           <h3>About Codechella:</h3>
-          <p>We are full-stack software developers from GA cracking the code, working with client- and server-sides,
-          databases and UI/UX design who know how to collaborate and rapidly build static and dynamic web apps.
-          Our industry software experts have months of experience building web sites and solutions for a number of projects.
-          We know our way around JavaScript, React, CSS, HTML, SQL, Express, Node.js, Sequelize.
-          </p>
+             <p>We are full-stack software developers from GA cracking the code, working with client- and server-sides,
+                databases and UI/UX design who know how to collaborate and rapidly build static and dynamic web apps.
+                Our industry software experts have months of experience building web sites and solutions for a number of projects.
+                We know our way around JavaScript, React, CSS, HTML, SQL, Express, Node.js, Sequelize.
+             </p>
+          <h3>Contacts:</h3>
+             <p>Contacts: 4th floor in General Assembly, 10 E 21st St, New York, NY 10010</p>
      </div>
    )
 }
