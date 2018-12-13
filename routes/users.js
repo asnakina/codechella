@@ -8,7 +8,12 @@ const usersRouter = express.Router();
 
 usersRouter.get('/all', async (req, res) => {
   try {
-    const users = await User.findAll();
+    const users = await User.findAll({
+      include: [
+        { model: Artist },
+        { model: Vendor }
+      ]
+    });
     res.json(users);
   } catch (e) {
     console.error(e);
@@ -17,9 +22,17 @@ usersRouter.get('/all', async (req, res) => {
     })
   }
 });
+
 usersRouter.get('/', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
-    res.json(req.user)
+    const user = await User.findOne({
+      where: { id: req.user.id },
+      include: [
+        { model: Artist },
+        { model: Vendor }
+      ]
+    })
+    res.json(user);
   } catch (e) {
       console.log(e)
       res.status(500).json({message: `The route is not connecting`})
