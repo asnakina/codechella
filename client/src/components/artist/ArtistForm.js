@@ -9,16 +9,15 @@ export default class ArtistForm extends Component {
       name: '',
       description: '',
       img_url: '',
-    validate: {
       urlState: '',
       artistState: '',
       descState: ''
-    },
   }
-
     this.validateArtist = this.validateArtist.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.validateURL = this.validateURL.bind(this);
+    this.validateDescription = this.validateDescription.bind(this);
   }
 
   handleChange(e) {
@@ -28,35 +27,38 @@ export default class ArtistForm extends Component {
 
   validateArtist(e) {
     let { value } = e.target;
-    let validName = this.props.artists.every(artist => artist.name.toLowerCase() !== value.toLowerCase());
+    let artistState = this.props.artists.every(artist => artist.name.toLowerCase() !== value.toLowerCase());
+    artistState ? this.setState({ artistState: 'good' }) : this.setState({ artistState: 'bad' });
+  }
 
-    this.setState({ validName });
+  validateDescription(e) {
+    this.state.description.length > 20 ?
+    this.setState({descState: 'good'}):
+    this.setState({descState: 'bad'});
   }
 
   validateURL(e) {
     const urlVal = /^(?:([^:/?#]+):)?(?:([^/?#]*))?([^?#]*\.(?:jpg|gif|png))(?:\?([^#]*))?(?:#(.*))?$/
-    const { validate } = this.state
+    const { urlState } = this.state;
     if (urlVal.test(e.target.value)) {
-      validate.urlState = 'good'
+      this.setState({urlState: 'good'});
     } else {
-      validate.urlState = 'bad'
+      this.setState({urlState: 'bad'});
     }
-    this.setState({
-       validate })
   }
 
 
 
   submitForm(e) {
     e.preventDefault();
-    //let { name, description, img_url } = this.state;
     let timeslot = null;
-    let url = this.state.urlState
-    let artist = this.state.artistState
-    let desc = this.state.descState
-
-    // let form = {name, description, img_url, timeslot};
-    // const resp = serv
+    let { name, description, img_url } = this.state;
+    if (this.state.artistState === 'good' &&
+        this.state.descState === 'good' &&
+        this.state.urlState === 'good') {
+          console.log('success!');
+          // this.props.submit({artist, description, img_url, timeslot});
+    }
   }
 
   render() {
@@ -74,17 +76,17 @@ export default class ArtistForm extends Component {
                 id="artistName"
                 placeholder="Kanye West"
                 value={ artist }
-                good={ this.state.validName === 'good' }
-                good={ this.state.validName === 'bad' }
+                valid={ this.state.artistState === 'good' }
+                invalid={ this.state.artistState === 'bad' }
                 onChange={ (e) => {
                             this.handleChange(e)
                             this.validateArtist(e)
                           } }
               />
-            <FormFeedback good>
+            <FormFeedback valid>
                 Rock on! This artist isn't playing this year.
               </FormFeedback>
-              <FormFeedback>
+              <FormFeedback invalid>
                 Sorry, they're already playing.
               </FormFeedback>
               <FormText>Please enter an artist you'd like to see this year.</FormText>
@@ -99,14 +101,17 @@ export default class ArtistForm extends Component {
                 id="artistDescription"
                 placeholder="Kanye West is a Chicago born rapper and performer."
                 value={ desc }
-                good={ this.state.description.length > 20 }
-                bad={ this.state.description.length < 20 }
-                onChange={this.handleChange}
+                valid={ this.state.descState === 'good' }
+                invalid={ this.state.descState === 'bad'}
+                onChange={ (e) => {
+                            this.handleChange(e)
+                            this.validateDescription(e)
+                          } }
               />
-            <FormFeedback good>
+            <FormFeedback valid>
                 Very descriptive.
               </FormFeedback>
-              <FormFeedback>
+              <FormFeedback invalid>
                 Add a little more.
               </FormFeedback>
               <FormText>Give a short description of them.</FormText>
@@ -121,20 +126,20 @@ export default class ArtistForm extends Component {
                 id= "artistImageURL"
                 placeholder= "http://pics.com/img/happy.jpg"
                 value={ url }
-                good={ this.state.validate.urlState === 'good' }
-                bad={ this.state.validate.urlState === 'bad' }
+                valid={ this.state.urlState === 'good' }
+                invalid={ this.state.urlState === 'bad' }
                 onChange={(e) => {
                   this.handleChange(e);
                   this.validateURL(e);
                 }}
               />
-            <FormFeedback good>
+            <FormFeedback valid>
                 That's an image!
               </FormFeedback>
-              <FormFeedback>
+              <FormFeedback invalid>
                 That's not an image.
               </FormFeedback>
-              <FormText>Give a short description of them.</FormText>
+              <FormText>Add an image!</FormText>
             </FormGroup>
           </Col>
           <Button>Submit</Button>
