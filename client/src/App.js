@@ -154,15 +154,16 @@ class App extends Component {
   }
 
   async submitArtist(data) {
+    console.log('functional');
     const headers = this.buildHeaders();
-    // data.created_by = this.state.user.id;
+    data.created_by = this.state.user.id;
     const resp = await serv.postArtist(data, headers);
     await this.getArtists();
   }
 
   async submitVendor(data) {
     const headers = this.buildHeaders();
-    // data.created_by = this.state.user.id;
+    data.created_by = this.state.user.id;
     const resp = await serv.postVendor(data, headers);
     await this.getVendors();
   }
