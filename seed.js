@@ -38,55 +38,55 @@ async function seed() {
     {
       name: 'Modest Mouse',
       description: 'Modest Mouse is an American rock band formed in 1992 in Issaquah, Washington and currently based in Portland, Oregon.',
-      timeslot: '1',
+      timeslot: '5:30pm',
       img_url: 'https://media1.fdncms.com/metrotimes/imager/u/original/11491411/modestmouse-benmoon-1.jpg'
     },
     {
       name: 'The Mars Volta',
       description: 'The Mars Volta is an American progressive rock band from El Paso, Texas, formed in 2001.',
-      timeslot: '1',
+      timeslot: '5:30pm',
       img_url: 'https://images-na.ssl-images-amazon.com/images/I/B1EA8jRxuoS._SL1000_.png'
     },
     {
       name: 'Lorde',
       description: 'Lorde chose her stage name because she was fascinated with "royals and aristocracy". However, she felt the name Lord was too masculine, thus she added an "e" to make it more feminine.',
-      timeslot: '1',
+      timeslot: '5:30pm',
       img_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/RF_3006_Lorde%40Arena_Krists_Luhaers-4_%2835731259842%29_%28cropped%29.jpg/1200px-RF_3006_Lorde%40Arena_Krists_Luhaers-4_%2835731259842%29_%28cropped%29.jpg'
     },
     {
       name: 'Janelle Monae',
       description: 'Janelle Monae Robinson is an American singer, songwriter, actress, and producer.',
-      timeslot: '2',
+      timeslot: '6:30pm',
       img_url: 'https://media.timeout.com/images/105232498/image.jpg'
     },
     {
       name: 'Adele',
       description: 'Adele Laurie Blue Adkins is an English singer and songwriter. She was the first female artist to simultaneously have two albums in the top five of the Billboard 200.',
-      timeslot: '2',
+      timeslot: '6:30pm',
       img_url: 'https://akns-images.eonline.com/eol_images/Entire_Site/2017210/rs_1024x759-170310161215-1024.Adele-Lipstick-Primer.jl.031017.jpg?fit=inside|900:auto&output-quality=90'
     },
     {
       name: 'Jank',
       description: 'Jank (stylized as JANK or J A N K !) was an American rock band from Philadelphia, Pennsylvania, formed in 2015.',
-      timeslot: '2',
+      timeslot: '6:30pm',
       img_url: 'https://1.bp.blogspot.com/-jz0psca2usc/WHMWCfpSe3I/AAAAAAAAJfY/KocInJNzaigm3NrU-kybFzJvBRjdvbaMgCLcB/s1600/Jank%2Bband.jpeg'
     },
     {
       name: 'Miguel',
       description: 'Miguel Jontel Pimentel is an American singer and songwriter.',
-      timeslot: '3',
+      timeslot: '7:30pm',
       img_url: 'https://timedotcom.files.wordpress.com/2017/11/miguel-protesting-prisons.jpg'
     },
     {
       name: 'FIDLAR',
       description: 'Fidlar, stylized as FIDLAR, is a punk rock band from Los Angeles, California. The band is currently signed to Mom + Pop Music in the US, Wichita Recordings in the UK and Dine Alone Records in Canada.',
-      timeslot: '3',
+      timeslot: '7:30pm',
       img_url: 'http://diymag.com/media/img/Artists/F/Fidlar/_1500x1000_crop_center-center_75/fidlar_philsmithies_diy_20150605_2047x1365.jpg'
     },
     {
       name: 'Enrique Iglesias',
       description: 'Enrique Iglesias is a Spanish singer, songwriter, actor and record producer. He is widely regarded as the King of Latin Pop.',
-      timeslot: '3',
+      timeslot: '7:30pm',
       img_url: 'https://1n9mch40qwp25b0ca1wk6bt6-wpengine.netdna-ssl.com/wp-content/uploads/2017/06/Enrique-Iglesias.png'
     }
   ], {
@@ -151,18 +151,18 @@ async function seed() {
   })
   const users = await User.bulkCreate([
     {
-      username: 'anastasia',
-      password: 'github',
+      username: 'anastasia@ga.com',
+      password: 'Password123!',
       ticket: 'VIP'
     },
     {
-      username: 'a@a.com',
-      password: 'Qwerty123!',
+      username: 'alberto@ga.com',
+      password: 'Password123!',
       ticket: 'VIP'
     },
     {
-      username: 'soleil',
-      password: 'butt()',
+      username: 'soleil@ga.com',
+      password: 'Password123!',
       ticket: 'VIP'
     }
   ], {
