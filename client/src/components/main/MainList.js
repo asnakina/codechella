@@ -10,14 +10,6 @@ import imgMain8 from '../../images/imgMain8.jpg';
 import imgMain9 from '../../images/imgMain9.jpg';
 import imgMain10 from '../../images/imgMain10.jpg';
 import imgMain11 from '../../images/imgMain11.jpg';
-import imgMain12 from '../../images/imgMain12.jpg';
-import imgMain13 from '../../images/imgMain13.jpg';
-import imgMain14 from '../../images/imgMain14.jpg';
-import imgMain15 from '../../images/imgMain15.jpg';
-import imgMain16 from '../../images/imgMain16.jpg';
-import imgMain17 from '../../images/imgMain17.jpg';
-import imgMain18 from '../../images/imgMain18.jpg';
-import imgMain19 from '../../images/imgMain19.jpg';
 import { Carousel } from 'antd';
 import './Main.css';
 
@@ -26,7 +18,7 @@ export default function MainList(props) {
     <div className="main">
        <h2 className="header">VALLEY MUSIC AND ARTS FESTIVAL</h2>
           <Carousel autoplay>
-            <div><img src={imgMain1} alt={props.imgMain} className="imgMain" minWidth={1300} maxHeight={400} /></div>
+            <div><img src={imgMain1} alt={props.imgMain} className="imgMain" /></div>
             <div><img src={imgMain2} alt={props.imgMain} className="imgMain" /></div>
             <div><img src={imgMain3} alt={props.imgMain} className="imgMain" /></div>
             <div><img src={imgMain4} alt={props.imgMain} className="imgMain" /></div>
@@ -37,14 +29,6 @@ export default function MainList(props) {
             <div><img src={imgMain9} alt={props.imgMain} className="imgMain" /></div>
             <div><img src={imgMain10} alt={props.imgMain} className="imgMain" /></div>
             <div><img src={imgMain11} alt={props.imgMain} className="imgMain" /></div>
-            <div><img src={imgMain12} alt={props.imgMain} className="imgMain" /></div>
-            <div><img src={imgMain13} alt={props.imgMain} className="imgMain" /></div>
-            <div><img src={imgMain14} alt={props.imgMain} className="imgMain" /></div>
-            <div><img src={imgMain15} alt={props.imgMain} className="imgMain" /></div>
-            <div><img src={imgMain16} alt={props.imgMain} className="imgMain" /></div>
-            <div><img src={imgMain17} alt={props.imgMain} className="imgMain" /></div>
-            <div><img src={imgMain18} alt={props.imgMain} className="imgMain" /></div>
-            <div><img src={imgMain19} alt={props.imgMain} className="imgMain" /></div>
           </Carousel>
      </div>
    )
@@ -76,5 +60,8 @@ export default function MainList(props) {
 //       currentIndex: index
 //    });
 //    }
-//
+//render() {
+  //return (
+//  )
+//}
 // }

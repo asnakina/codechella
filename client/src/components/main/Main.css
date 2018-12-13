@@ -12,10 +12,9 @@
 .ant-carousel .slick-slide {
   text-align: center;
   item-align: center;
-  height: 500px;
+  height: 76vh;
   width: 100vw;
   /* width: 100%; */
-  object-fit: contain;
   line-height: 160px;
   background: white;
   overflow: hidden;
@@ -23,4 +22,10 @@
 
 .ant-carousel .slick-slide h3 {
   color: #fff;
+}
+
+div .imgMain {
+  width: 100vw;
+  height: 76vh;
+  object-fit: cover;
 }
