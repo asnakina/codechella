@@ -24,28 +24,57 @@ import './Main.css';
 export default function MainList(props) {
   return (
     <div className="main">
-        <h1>Music Festival</h1>
-        <Carousel autoplay>
-    <div><img src={imgMain1} alt={props.imgMain} className="imgMain" minWidth={1300} maxHeight={400} /></div>
-    <div><img src={imgMain2} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain3} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain4} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain5} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain6} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain7} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain8} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain9} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain10} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain11} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain12} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain13} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain14} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain15} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain16} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain17} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain18} alt={props.imgMain} className="imgMain" /></div>
-    <div><img src={imgMain19} alt={props.imgMain} className="imgMain" /></div>
-  </Carousel>
-    </div>
-  )
+       <h2 className="header">VALLEY MUSIC AND ARTS FESTIVAL</h2>
+          <Carousel autoplay>
+            <div><img src={imgMain1} alt={props.imgMain} className="imgMain" minWidth={1300} maxHeight={400} /></div>
+            <div><img src={imgMain2} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain3} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain4} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain5} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain6} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain7} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain8} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain9} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain10} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain11} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain12} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain13} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain14} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain15} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain16} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain17} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain18} alt={props.imgMain} className="imgMain" /></div>
+            <div><img src={imgMain19} alt={props.imgMain} className="imgMain" /></div>
+          </Carousel>
+     </div>
+   )
 }
+
+// class Carousel expends React.Component {
+//  constructor(props) {
+//    super(props);
+//    this.state = {
+//      images: [],
+//      currentIndex: 0,
+//      index: 0
+//    };
+//    this.previousSlide = this.previousSlide.bind(this)
+//  }
+//  previousSlide() {
+//    const lastIndex = images.length - 1;
+//    const ResetingIndex = this.state.currentIndex === 0;
+//    const index = ResetingIndex ? lastIndex : this.state.currentIndex-1;
+//    this.setState({
+//       currentIndex: index
+//    });
+//  }
+//  nextSlide() {
+//    const lastIndex = images.length - 1;
+//    const ResetingIndex = this.state.currentIndex === lastImage;
+//    const index = ResetingIndex ? 0 : this.state.currentIndex+1;
+//      this.setState({
+//       currentIndex: index
+//    });
+//    }
+//
+// }

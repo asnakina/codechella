@@ -1,10 +1,21 @@
 @import '~antd/dist/antd.css';
 
+.header {
+  font-family: 'Lato';
+  background-image: linear-gradient(to right bottom, #95a7c3, #93a4de, #a38cf3, #c69efd, #f277f9);
+  color: white;
+  padding: 4vmin;
+  margin: 2vmin 0;
+  grid-column: span 3;
+}
+
 .ant-carousel .slick-slide {
   text-align: center;
   item-align: center;
   height: 500px;
   width: 100vw;
+  /* width: 100%; */
+  object-fit: contain;
   line-height: 160px;
   background: white;
   overflow: hidden;

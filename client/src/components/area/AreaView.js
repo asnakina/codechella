@@ -9,9 +9,9 @@ export default class AreaView extends Component {
       list: true,
       selectedArea: '',
       areaModalVisibility: false
-    }
-    this.handleChange = this.handleChange.bind(this);
-    this.setModalVisibility = this.setModalVisibility.bind(this);
+     }
+   this.handleChange = this.handleChange.bind(this);
+   this.setModalVisibility = this.setModalVisibility.bind(this);
   }
 
   handleChange(selectedArea) {
