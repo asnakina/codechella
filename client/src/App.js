@@ -8,6 +8,7 @@ import ProfileView from './components/profile/ProfileView';
 import MainList from './components/main/MainList';
 import MapList from './components/map/MapList';
 import LoginView from './components/login/LoginView';
+import Footer from './components/footer/Footer';
 import './App.css';
 import serv from './services/apiservices.js';
 
@@ -166,6 +167,7 @@ class App extends Component {
             }
         </header>
         { content }
+        <Footer />
       </div>
     );
   }
