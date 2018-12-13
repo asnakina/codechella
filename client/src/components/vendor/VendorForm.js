@@ -40,7 +40,7 @@ export default class VendorForm extends Component {
   validateURL(e) {
     const urlVal = /^(?:([^:/?#]+):)?(?:([^/?#]*))?([^?#]*\.(?:jpg|gif|png))(?:\?([^#]*))?(?:#(.*))?$/
     const { urlState } = this.state;
-    if (urlVal.test(e.target.value)) {
+    if (urlVal.test(e.target.value) && e.target.value.length < 256) {
       this.setState({urlState: 'good'});
     } else {
       this.setState({urlState: 'bad'});
@@ -53,7 +53,6 @@ export default class VendorForm extends Component {
     if (this.state.vendorState === 'good' &&
         this.state.descState === 'good' &&
         this.state.urlState === 'good') {
-          console.log('success!');
           this.props.submit({name, description, img_url});
     }
   }
@@ -71,7 +70,7 @@ export default class VendorForm extends Component {
                     type="name"
                     name="name"
                     id="vendorName"
-                    placeholder="Kanye West"
+                    placeholder="Chipotle"
                     value={ vendor }
                     valid={ this.state.vendorState === 'good' }
                     invalid={ this.state.vendorState === 'bad' }
@@ -97,7 +96,7 @@ export default class VendorForm extends Component {
                      type="name"
                      name="description"
                      id="vendorDescription"
-                     placeholder="Kanye West is a Chicago born rapper and performer."
+                     placeholder="Burritos with fresh, organic ingredients."
                      value={ desc }
                      valid={ this.state.descState === 'good' }
                      invalid={ this.state.descState === 'bad'}
