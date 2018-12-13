@@ -28,26 +28,27 @@ export default class AreaView extends Component {
   }
 
   render() {
-    console.log(this.props.areas);
+   console.log(this.props.areas);
     let areaModalVisibility = this.state.areaModalVisibility
-    return (
+     return (
       <div>
-      <h2 className="header">STAGES</h2>
-      {this.state.areaModalVisibility ?
-        <AreaModal
-           id={this.state.selectedArea}
-           artists={this.props.artists.filter(artist => artist.area_id === this.state.selectedArea)}
-           vendors={this.props.vendors.filter(vendor => vendor.area_id === this.state.selectedArea)}
-           setModalVisibility={this.setModalVisibility}
-           /*visible={areaModalVisibility}*/
-            areas = {this.props.areas}
-        /> :
-        <AreaList
-           areas = {this.props.areas}
-           artists = {this.props.artists}
-           onChange= {this.handleChange}
-        /> }
-       </div>
+        <h2 className="header">STAGES</h2>
+          {this.state.areaModalVisibility ?
+             <AreaModal
+               id={this.state.selectedArea}
+               artists={this.props.artists.filter(artist => artist.area_id === this.state.selectedArea)}
+               vendors={this.props.vendors.filter(vendor => vendor.area_id === this.state.selectedArea)}
+               setModalVisibility={this.setModalVisibility}
+               /*visible={areaModalVisibility}*/
+               areas = {this.props.areas}
+             /> :
+          <AreaList
+              areas = {this.props.areas}
+              artists = {this.props.artists}
+              onChange= {this.handleChange}
+             />
+           }
+      </div>
      )
-  }
+   }
 }

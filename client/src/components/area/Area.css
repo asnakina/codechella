@@ -68,8 +68,9 @@
 }
 
 .Area {
-  width: 50vmin;
-  height: 55vmin;
+  width: 440px;
+  height: 300px;
+  margin-top: 50px;
   position: relative;
   box-shadow: 2px 2px lightgrey;
   display: flex;
@@ -127,11 +128,6 @@
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
-}
-
-.Area >img {
-  width: 440px;
-  height: 300px;
 }
 
 .AreaExit {

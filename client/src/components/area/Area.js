@@ -6,7 +6,6 @@ export default function Area(props) {
     <div onClick={() => props.handleChange(props.id)} className="Area">
            <img src={props.img_url} alt={props.img_url} />
             <h3>{props.name.toUpperCase()}</h3>
-         <span><input className="AreaFavebutton" type="button" value="Add to Favorites"/></span>
        </div>
    )
 };
