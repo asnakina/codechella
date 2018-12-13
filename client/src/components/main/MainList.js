@@ -14,7 +14,7 @@ import './Main.css';
 export default function MainList(props) {
   return (
     <div className="main">
-       <h2 className="header">VALLEY MUSIC AND ARTS FESTIVAL</h2>
+       <h2 className="header">VALLEY  MUSIC  AND  ARTS  FESTIVAL</h2>
           <Carousel autoplay>
             <div><img src={imgMain1} alt={props.imgMain} className="imgMain" /></div>
             <div><img src={imgMain2} alt={props.imgMain} className="imgMain" /></div>
@@ -28,7 +28,11 @@ export default function MainList(props) {
           </Carousel>
           <span><img src={ require('../../images/codechella.png') } alt={'home'} className="mainName"/></span>
           <h3>About Codechella:</h3>
-          <p>Young professionals from GA crack the code</p>
+          <p>We are full-stack software developers from GA cracking the code, working with client- and server-sides,
+          databases and UI/UX design who know how to collaborate and rapidly build static and dynamic web apps.
+          Our industry software experts have months of experience building web sites and solutions for a number of projects.
+          We know our way around JavaScript, React, CSS, HTML, SQL, Express, Node.js, Sequelize.
+          </p>
      </div>
    )
 }
