@@ -12,7 +12,9 @@ export default function VendorList(props) {
           onChange={props.onChange}
           favoriteVendor={props.favoriteVendor}
           unfavoriteVendor={props.unfavoriteVendor}
-          isFavorite={props.userVendors.some(userVendor => vendor.id === userVendor.id)}/>
+          isFavorite={props.userVendors ?
+            props.userVendors.some(userVendor => vendor.id === userVendor.id) :
+          false}/>
         )
       })}
     </div>
