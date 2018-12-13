@@ -78,7 +78,7 @@ const loginUser = async (data, headers) => {
  return user.data;
 }
 const registerUser = async (data) => {
- const user = await axios.post(`${BASE_URL}/users`,data);
+ const user = await axios.post(`${BASE_URL}/users/register`,data);
  return user.data;
 }
 

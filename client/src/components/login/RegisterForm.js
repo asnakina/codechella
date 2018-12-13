@@ -46,6 +46,9 @@ export default class RegisterForm extends Component {
 
  submitForm(e) {
    e.preventDefault();
+   let username = this.state.email;
+   let password = this.state.password;
+   this.props.register({username, password});
  }
 
  render() {
