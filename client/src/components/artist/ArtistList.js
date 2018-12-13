@@ -10,7 +10,10 @@ export default function ArtistList(props) {
         return (
           <Artist key={artist.id}
           artist={artist}
-          onChange={props.onChange}/>
+          onChange={props.onChange}
+          favoriteArtist={props.favoriteArtist}
+          unfavoriteArtist={props.unfavoriteArtist}
+          isFavorite={props.userArtists.some(userArtist => artist.id === userArtist.id)}/>
         )
       })}
     </div>

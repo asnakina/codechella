@@ -31,7 +31,10 @@ export default class VendorView extends Component {
       {!this.state.vendor ?
         <VendorList
           vendors={this.props.vendors}
-          onChange={this.handleModal}/> :
+          onChange={this.handleModal}
+          favoriteVendor={this.props.favoriteVendor}
+          unfavoriteVendor={this.props.unfavoriteVendor}
+          userVendors={this.props.userVendors}/> :
         <VendorModal
           vendor={this.state.vendor}
           reset={this.resetModal}/>}

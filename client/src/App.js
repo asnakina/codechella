@@ -30,6 +30,10 @@ class App extends Component {
     this.register = this.register.bind(this);
     this.buildHeaders = this.buildHeaders.bind(this);
     this.getCurrentUser = this.getCurrentUser.bind(this);
+    this.favoriteArtist = this.favoriteArtist.bind(this);
+    this.favoriteVendor = this.favoriteVendor.bind(this);
+    this.unfavoriteArtist = this.unfavoriteArtist.bind(this);
+    this.unfavoriteVendor = this.unfavoriteVendor.bind(this);
   }
 
   setView = (view) => {
@@ -120,6 +124,33 @@ class App extends Component {
     this.setView('profileView');
   }
 
+  async favoriteArtist(e) {
+    let id = e.target.name;
+    const headers = this.buildHeaders();
+    const resp = await serv.favoriteArtist(id, headers);
+    this.getCurrentUser();
+  }
+
+  async favoriteVendor(e) {
+    let id = e.target.name;
+    const headers = this.buildHeaders();
+    const resp = await serv.favoriteVendor(id, headers);
+    this.getCurrentUser();
+  }
+
+  async unfavoriteArtist(e) {
+    let id = e.target.name;
+    const headers = this.buildHeaders();
+    const resp = await serv.unfavoriteArtist(id, headers);
+    this.getCurrentUser();
+  }
+
+  async unfavoriteVendor(e) {
+    let id = e.target.name;
+    const headers = this.buildHeaders();
+    const resp = await serv.unfavoriteVendor(id, headers);
+    this.getCurrentUser();
+  }
 
   render() {
     //switching between views
@@ -129,10 +160,18 @@ class App extends Component {
        content = <MapList />;
        break;
       case 'artistsView':
-       content = <ArtistView artists={this.state.artists || []} />;
+       content = <ArtistView
+       userArtists={this.state.user.artists || null}
+       artists={this.state.artists || []}
+       favoriteArtist={this.favoriteArtist}
+       unfavoriteArtist={this.unfavoriteArtist}/>;
        break;
       case 'vendorsView':
-       content = <VendorView vendors = {this.state.vendors || []} />;
+       content = <VendorView
+       userVendors={this.state.user.vendors || null}
+       vendors = {this.state.vendors || []}
+       favoriteVendor={this.favoriteVendor}
+       unfavoriteVendor={this.unfavoriteVendor}/>;
        break;
       case 'areasView':
        content = <AreaView
