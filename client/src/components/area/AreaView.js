@@ -28,7 +28,7 @@ export default class AreaView extends Component {
   }
 
   render() {
-   console.log(this.props.areas);
+   
     let areaModalVisibility = this.state.areaModalVisibility
      return (
       <div>
