@@ -9,9 +9,13 @@ export default class ArtistForm extends Component {
       name: '',
       description: '',
       img_url: '',
-      validName: '',
-      validURL: ''
-    }
+    validate: {
+      urlState: '',
+      artistState: '',
+      descState: ''
+    },
+  }
+
     this.validateArtist = this.validateArtist.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.submitForm = this.submitForm.bind(this);
@@ -25,26 +29,38 @@ export default class ArtistForm extends Component {
   validateArtist(e) {
     let { value } = e.target;
     let validName = this.props.artists.every(artist => artist.name.toLowerCase() !== value.toLowerCase());
+
     this.setState({ validName });
   }
 
   validateURL(e) {
-    let { value } = e.target;
-    let regex = /.jpg|.gif|.jpeg|.png|.tif/gi
-    let validURL = regex.test(value);
-    this.setState({ validURL });
+    const urlVal = /^(?:([^:/?#]+):)?(?:([^/?#]*))?([^?#]*\.(?:jpg|gif|png))(?:\?([^#]*))?(?:#(.*))?$/
+    const { validate } = this.state
+    if (urlVal.test(e.target.value)) {
+      validate.urlState = 'good'
+    } else {
+      validate.urlState = 'bad'
+    }
+    this.setState({
+       validate })
   }
+
+
 
   submitForm(e) {
     e.preventDefault();
-    let { name, description, img_url } = this.state;
+    //let { name, description, img_url } = this.state;
     let timeslot = null;
-    let form = {name, description, img_url, timeslot};
-    const resp = serv
+    let url = this.state.urlState
+    let artist = this.state.artistState
+    let desc = this.state.descState
+
+    // let form = {name, description, img_url, timeslot};
+    // const resp = serv
   }
 
   render() {
-    const { name, description, img_url } = this.state;
+    const { url, artist, desc } = this.state;
     return (
       <Container className="reg-box">
         <h2>Vote on Wildcard Artists!</h2>
@@ -57,15 +73,15 @@ export default class ArtistForm extends Component {
                 name="name"
                 id="artistName"
                 placeholder="Kanye West"
-                value={ name }
-                valid={ this.state.validName === true }
-                invalid={ this.state.validName === false }
+                value={ artist }
+                good={ this.state.validName === 'good' }
+                good={ this.state.validName === 'bad' }
                 onChange={ (e) => {
                             this.handleChange(e)
                             this.validateArtist(e)
                           } }
               />
-              <FormFeedback valid>
+            <FormFeedback good>
                 Rock on! This artist isn't playing this year.
               </FormFeedback>
               <FormFeedback>
@@ -82,12 +98,12 @@ export default class ArtistForm extends Component {
                 name="description"
                 id="artistDescription"
                 placeholder="Kanye West is a Chicago born rapper and performer."
-                value={ description }
-                valid={ this.state.description.length > 20 }
-                invalid={ this.state.description.length < 20 }
+                value={ desc }
+                good={ this.state.description.length > 20 }
+                bad={ this.state.description.length < 20 }
                 onChange={this.handleChange}
               />
-              <FormFeedback valid>
+            <FormFeedback good>
                 Very descriptive.
               </FormFeedback>
               <FormFeedback>
@@ -100,19 +116,19 @@ export default class ArtistForm extends Component {
             <FormGroup>
               <Label>Image URL</Label>
               <Input
-                type="name"
-                name="img_url"
-                id="artistImageURL"
-                placeholder="https://fashionista.com/.image/t_share/MTI4MDQxNzYyODY1MzIyNDYy/463009592jpg.jpg"
-                value={ img_url }
-                valid={ this.state.validURL === true }
-                invalid={ this.state.validURL === false }
+                type= "name"
+                name= "img_url"
+                id= "artistImageURL"
+                placeholder= "http://pics.com/img/happy.jpg"
+                value={ url }
+                good={ this.state.validate.urlState === 'good' }
+                bad={ this.state.validate.urlState === 'bad' }
                 onChange={(e) => {
                   this.handleChange(e);
                   this.validateURL(e);
                 }}
               />
-              <FormFeedback valid>
+            <FormFeedback good>
                 That's an image!
               </FormFeedback>
               <FormFeedback>
