@@ -16,4 +16,3 @@ export default function ArtistList(props) {
     </div>
   )
 }
-// <h1>Artists:</h1>

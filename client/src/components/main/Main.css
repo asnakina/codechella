@@ -1,0 +1,15 @@
+@import '~antd/dist/antd.css';
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  item-align: center;
+  height: 500px;
+  width: 100vw;
+  line-height: 160px;
+  background: white;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+}
