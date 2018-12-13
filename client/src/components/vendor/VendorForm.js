@@ -54,7 +54,7 @@ export default class VendorForm extends Component {
         this.state.descState === 'good' &&
         this.state.urlState === 'good') {
           console.log('success!');
-          this.props.submit({vendor, description, img_url});
+          this.props.submit({name, description, img_url});
     }
   }
 
