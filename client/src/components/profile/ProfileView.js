@@ -1,21 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
-export default class ProfileView extends Component {
-  constructor(props) {
-    super(props);
-    this.setState = {
-      userView: 'ProfileView',
-    }
-  }
-  render() {
+export default function ProfileView(props) {
+  console.log(props.user);
     return (
       <div>
-      <h3>ProfileView</h3>
-
+        <h3>{props.user.username}</h3>
       </div>
     )
-  }
 }
 // import ArtistList from '../artist/ArtistList';
 // import VendorList from '../vendor/VendorList';

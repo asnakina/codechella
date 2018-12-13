@@ -147,7 +147,7 @@ class App extends Component {
         content = <LoginView login={this.login} register={this.register}/>;
         break;
       case 'profileView':
-        content = <ProfileView user={this.state.currentUser}/>;
+        content = <ProfileView user={this.state.user}/>;
         break;
       default:
        content = <MainList />;
