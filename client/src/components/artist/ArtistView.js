@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ArtistList from './ArtistList';
 import ArtistModal from './ArtistModal';
+import ArtistForm from './ArtistForm';
 import './ArtistList.css';
 
 export default class ArtistView extends Component {
@@ -19,7 +20,7 @@ export default class ArtistView extends Component {
     const artist = this.props.artists.filter(artist => artist.name.toLowerCase() === id.toLowerCase())[0];
     this.setState({artist});
   }
-
+  
   resetModal() {
     this.setState({artist: null});
   }
@@ -35,6 +36,10 @@ export default class ArtistView extends Component {
         <ArtistModal
           artist={this.state.artist}
           reset={this.resetModal}/>}
+      <h2 className="header">WILDCARDS</h2>
+      <ArtistForm
+        artists={this.props.artists}
+        submitForm={this.submitForm}/>
       </div>
     )
   }
