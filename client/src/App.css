@@ -15,6 +15,13 @@ header {
   margin: 2vh auto;
 }
 
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 .navBtn {
   width: 12vmin;
   height: 6vmin;
@@ -44,4 +51,11 @@ header img {
 }
 header img:hover{
   opacity: .5;
+}
+footer img {
+  width: 48vmin;
+  height: 6vmin;
+  margin: 0 auto;
+  flex: 0 0 5;
+  align-self:center;
 }
