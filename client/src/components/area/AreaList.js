@@ -1,13 +1,11 @@
 import React from 'react';
 import Area from './Area';
 import './Area.css';
-// import serv from './services/apiservices.js';
 
 function AreaList(props) {
   return (
     <div>
-     <h1>Areas:</h1>
-      <div className="areas">
+      <div className="AreaList">
        {props.areas.map(eachArea => (
         <Area
           key={eachArea.id}

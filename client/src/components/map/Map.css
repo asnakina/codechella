@@ -1,0 +1,21 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  font-family: 'Lato';
+  background-image: linear-gradient(to right bottom, #95a7c3, #93a4de, #a38cf3, #c69efd, #f277f9);
+  color: white;
+  padding: 4vmin;
+  margin: 2vmin 0;
+  grid-column: span 3;
+  margin-bottom: 0;
+}
+
+.map > img {
+  width: 90%;
+  heigh: 700px;
+  margin-top: 0;
+}

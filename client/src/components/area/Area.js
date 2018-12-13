@@ -1,14 +1,13 @@
 import React from 'react';
 import './Area.css';
-// import img_url from '../../images/imgStage1.jpg'
 
 export default function Area(props) {
   return (
-    <div onClick={() => props.handleChange(props.id)}>
-       <h3>{props.name}</h3>
-       <div>
-         <img src={props.img_url} alt={props.img_url} className="area" />
+    <div onClick={() => props.handleChange(props.id)} className="Area">
+           <img src={props.img_url} alt={props.img_url} />
+            <h3>{props.name.toUpperCase()}</h3>
+         <span><input className="AreaFavebutton" type="button" value="Add to Favorites"/></span>
        </div>
-    </div>
    )
 };
+// <h3>{props.name}</h3>

@@ -1,9 +1,6 @@
 import React from 'react';
 import Artist from '../artist/Artist';
 import Vendor from '../vendor/Vendor';
-// import { Modal } from 'reactstrap';
-// import { Modal, Button } from 'antd';
-// import AreaModalChild from './AreaModalChild';
 
 export default class AreaModal extends React.Component {
   constructor(props) {
@@ -17,30 +14,29 @@ export default class AreaModal extends React.Component {
 
 render() {
   return (
-    <div>
-    <button onClick={this.handleClose}>Close</button>
-
-    <h1>Modal</h1>
-      <div className="static-modal">
-        <div>{this.props.artists.map((artist) => {
+    <div className="AreaModalParent">
+      <button onClick={this.handleClose} className="AreaExit">X</button>
+        <div className="AreaModalChild">
+          <h3>Artists</h3>
+            <div className="AreaModalArtistVendor">
+            <div className="AreaModalArtist">
+            {this.props.artists.map((artist) => {
                 return (
                   <Artist artist={artist} />
-                )
+                 )
               })}
-              {this.props.vendors.map((vendor) => {
-                return (
-                  <Vendor vendor={vendor} />
-                )
-              })}
-       </div>
+              </div>
+           <h3>Vendors</h3>
+           <div className="AreaModalVendor">
+               {this.props.vendors.map((vendor) => {
+                 return (
+                   <Vendor vendor={vendor} />
+                 )
+               })}
+               </div>
+            </div>
+         </div>
      </div>
-   </div>
-
-  );
- }
+   );
+  }
 }
-/*<Modal title="Welcome"
-       visible={this.props.visible}
-       onCancel={this.handleClose}>*/
-
-        /*</Modal>*/

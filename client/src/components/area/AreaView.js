@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AreaList from './AreaList';
 import AreaModal from './AreaModal';
-// import { Modal, Button } from 'antd';
 
 export default class AreaView extends Component {
   constructor(props) {
@@ -28,12 +27,12 @@ export default class AreaView extends Component {
     })
   }
 
-
   render() {
     console.log(this.props.areas);
     let areaModalVisibility = this.state.areaModalVisibility
     return (
       <div>
+      <h2 className="header">STAGES</h2>
       {this.state.areaModalVisibility ?
         <AreaModal
            id={this.state.selectedArea}
