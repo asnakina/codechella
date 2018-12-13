@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Artist from '../artist/Artist';
 import Vendor from '../vendor/Vendor';
 
@@ -16,8 +16,6 @@ export default function ProfileView(props) {
             isFavorite={props.userArtists ?
               props.userArtists.some(userArtist => artist.id === userArtist.id) :
             false}/>
-
-
           )
         })}
         {props.user.vendors.map(vendor => {
@@ -33,5 +31,6 @@ export default function ProfileView(props) {
         })}
 
       </div>
+
     )
 }

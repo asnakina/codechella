@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Col, Form, FormFeedback, FormGroup, FormText, Label, Input, Button } from 'reactstrap';
-import serv from '../../services/apiservices.js';
+
 
 export default class VendorForm extends Component {
   constructor(props) {
@@ -39,7 +39,6 @@ export default class VendorForm extends Component {
 
   validateURL(e) {
     const urlVal = /^(?:([^:/?#]+):)?(?:([^/?#]*))?([^?#]*\.(?:jpg|gif|png))(?:\?([^#]*))?(?:#(.*))?$/
-    const { urlState } = this.state;
     if (urlVal.test(e.target.value) && e.target.value.length < 256) {
       this.setState({urlState: 'good'});
     } else {

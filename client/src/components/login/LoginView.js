@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
-import serv from '../../services/apiservices.js';
 
 export default class LoginView extends Component {
   constructor(props) {

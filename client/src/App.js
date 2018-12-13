@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 
 import ArtistView from './components/artist/ArtistView';
 import VendorView from './components/vendor/VendorView';
