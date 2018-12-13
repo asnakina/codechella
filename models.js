@@ -27,13 +27,16 @@ const Artist = sequelize.define('artist', {
   name: Sequelize.STRING,
   description: Sequelize.STRING,
   timeslot: Sequelize.STRING,
-  img_url: Sequelize.STRING
+  img_url: Sequelize.STRING,
+  created_by: Sequelize.INTEGER
+
 });
 
 const Vendor = sequelize.define('vendor', {
   name: Sequelize.STRING,
   description: Sequelize.STRING,
-  img_url: Sequelize.STRING
+  img_url: Sequelize.STRING,
+  created_by: Sequelize.INTEGER
 });
 
 const Area = sequelize.define('area', {
