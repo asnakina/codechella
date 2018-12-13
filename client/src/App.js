@@ -97,6 +97,8 @@ class App extends Component {
        content = <MainList />;
        break;
       case 'loginView':
+		this.state.loggedIn ?
+		content = <ProfileView user={this.getCurrentUser()}/> :
        content = <LoginView />;
        break;
        case 'profileView':
@@ -105,8 +107,7 @@ class App extends Component {
 
       default:
        content = <MainList />;
-    }
-
+}
     return (
       <div className="App">
 
