@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
-import ArtistMap from './ArtistMap';
-import VendorMap from './VendorMap';
+import React from 'react';
 
-export default function ProfileView(props) {
 
-    return (
-
+export default function ArtistMap(props) {
+  return (
     <div>
+
       {props.user.artists.map(artist => {
         return (
           <h3>
@@ -15,9 +13,7 @@ export default function ProfileView(props) {
           description={artist.description}
           </h3>
         )
-      })}  
-
+      })}
     </div>
-
-    )
+  )
 }
