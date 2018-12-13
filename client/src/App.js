@@ -34,6 +34,7 @@ class App extends Component {
     this.favoriteVendor = this.favoriteVendor.bind(this);
     this.unfavoriteArtist = this.unfavoriteArtist.bind(this);
     this.unfavoriteVendor = this.unfavoriteVendor.bind(this);
+    this.submitArtist = this.submitArtist.bind(this);
   }
 
   setView = (view) => {
@@ -152,6 +153,12 @@ class App extends Component {
     this.getCurrentUser();
   }
 
+  async submitArtist(data) {
+    const headers = this.buildHeaders();
+    const resp = await serv.postArtist(data, headers);
+    await this.getArtists();
+  }
+
   render() {
     //switching between views
     let content;
@@ -164,7 +171,8 @@ class App extends Component {
        userArtists={this.state.user.artists || null}
        artists={this.state.artists || []}
        favoriteArtist={this.favoriteArtist}
-       unfavoriteArtist={this.unfavoriteArtist}/>;
+       unfavoriteArtist={this.unfavoriteArtist}
+       submit={this.submitArtist}/>;
        break;
       case 'vendorsView':
        content = <VendorView

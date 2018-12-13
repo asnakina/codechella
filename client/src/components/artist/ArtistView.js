@@ -31,7 +31,7 @@ export default class ArtistView extends Component {
       <h2 className="header">LINEUP</h2>
       {!this.state.artist ?
         <ArtistList
-          artists={this.props.artists}
+          artists={this.props.artists.filter(artist => artist.timeslot !== null)}
           onChange={this.handleModal}
           favoriteArtist={this.props.favoriteArtist}
           unfavoriteArtist={this.props.unfavoriteArtist}
@@ -40,11 +40,16 @@ export default class ArtistView extends Component {
           artist={this.state.artist}
           reset={this.resetModal}/>}
       <h2 className="header">WILDCARDS</h2>
-      <ArtistForm
-        artists={this.props.artists}
-        submitForm={this.submitForm}
-        />
-
+        <ArtistList
+          artists={this.props.artists.filter(artist => artist.timeslot === null)}
+          onChange={this.handleModal}
+          favoriteArtist={this.props.favoriteArtist}
+          unfavoriteArtist={this.props.unfavoriteArtist}
+          userArtists={this.props.userArtists}/>
+          <ArtistForm
+            artists={this.props.artists}
+            submit={this.props.submit}
+            />
       </div>
     )
   }

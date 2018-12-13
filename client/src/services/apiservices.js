@@ -26,9 +26,14 @@ const BASE_URL = 'http://localhost:3001';
   return artists.data;
 }
 
- const postArtist = async (data) => {
-  const artist = await axios.post(`${BASE_URL}/artists`,data);
-  return artist.data;
+ const postArtist = async (data, headers) => {
+   const artist = await axios({
+     method: 'post',
+     url: `${BASE_URL}/artists`,
+     data: data,
+     headers: headers
+   });
+   return artist.data;
 }
 
  const removeArtist = async (id) => {
