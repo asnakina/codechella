@@ -42,7 +42,7 @@ export default class VendorView extends Component {
           <h2 className="header">WILDCARDS</h2>
         <VendorForm
           vendors={this.props.vendors}
-          submitForm={this.submitForm}
+          submit={this.props.submit}
         />
       </div>
     )

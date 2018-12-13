@@ -35,6 +35,7 @@ class App extends Component {
     this.unfavoriteArtist = this.unfavoriteArtist.bind(this);
     this.unfavoriteVendor = this.unfavoriteVendor.bind(this);
     this.submitArtist = this.submitArtist.bind(this);
+    this.submitVendor = this.submitVendor.bind(this);
   }
 
   setView = (view) => {
@@ -155,8 +156,16 @@ class App extends Component {
 
   async submitArtist(data) {
     const headers = this.buildHeaders();
+    // data.created_by = this.state.user.id;
     const resp = await serv.postArtist(data, headers);
     await this.getArtists();
+  }
+
+  async submitVendor(data) {
+    const headers = this.buildHeaders();
+    // data.created_by = this.state.user.id;
+    const resp = await serv.postVendor(data, headers);
+    await this.getVendors();
   }
 
   render() {
@@ -179,7 +188,8 @@ class App extends Component {
        userVendors={this.state.user.vendors || null}
        vendors = {this.state.vendors || []}
        favoriteVendor={this.favoriteVendor}
-       unfavoriteVendor={this.unfavoriteVendor}/>;
+       unfavoriteVendor={this.unfavoriteVendor}
+       submit={this.submitVendor}/>;
        break;
       case 'areasView':
        content = <AreaView

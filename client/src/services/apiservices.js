@@ -56,8 +56,13 @@ const BASE_URL = 'http://localhost:3001';
   return vendor.data;
 }
 
- const postVendor = async (data) => {
-  const vendor = await axios.post(`${BASE_URL}/vendors`, data);
+const postVendor = async (data, headers) => {
+  const vendor = await axios({
+    method: 'post',
+    url: `${BASE_URL}/vendors`,
+    data: data,
+    headers: headers
+  });
   return vendor.data;
 }
 

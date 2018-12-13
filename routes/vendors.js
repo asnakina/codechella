@@ -1,6 +1,7 @@
 const express = require('express');
 const vendorsRouter = express.Router();
 const { Vendor }  = require('../models');
+const { passport, sign } = require('../auth');
 
 vendorsRouter.get('/', async (req, res) => {
   try {
