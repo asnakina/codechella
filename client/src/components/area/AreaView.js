@@ -28,7 +28,7 @@ export default class AreaView extends Component {
   }
 
   render() {
-   
+
     let areaModalVisibility = this.state.areaModalVisibility
      return (
       <div>
@@ -38,6 +38,12 @@ export default class AreaView extends Component {
                id={this.state.selectedArea}
                artists={this.props.artists.filter(artist => artist.area_id === this.state.selectedArea)}
                vendors={this.props.vendors.filter(vendor => vendor.area_id === this.state.selectedArea)}
+               userArtists={this.props.userArtists}
+               userVendors={this.props.userVendors}
+               favoriteArtist={this.props.favoriteArtist}
+               unfavoriteArtist={this.props.unfavoriteArtist}
+               favoriteVendor={this.props.favoriteVendor}
+               unfavoriteVendor={this.props.unfavoriteVendor}
                setModalVisibility={this.setModalVisibility}
                /*visible={areaModalVisibility}*/
                areas = {this.props.areas}

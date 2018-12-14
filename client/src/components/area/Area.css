@@ -16,6 +16,7 @@
 .AreaModalParent {
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 
 .AreaModalChild {
@@ -36,18 +37,7 @@
   justify-content: space-around;
 }
 
-.AreaModalArtist > h3 {
-  color: grey;
-  z-index: 1000;
-  font-family: 'Lato';
-  font-weight: 200;
-  background: white;
-  max-width: 20vmin;
-  padding: 0 1vmin;
-  margin: 0 auto;
-  font-size: 3vmin;
-  transition: all 0.3s;
-}
+
 
 .AreaModalVendor {
   display: flex;
@@ -60,10 +50,23 @@
   z-index: 1000;
   font-family: 'Lato';
   font-weight: 200;
-  max-width: 50vmin;
+  max-width: 20vmin;
   padding: 0 1vmin;
   margin: 2vmin auto;
-  font-size: 4vmin;
+  font-size: 3vmin;
+  transition: all 0.3s;
+}
+
+.AreaModalArtist h3, .AreaModalVendor h3 {
+  color: grey;
+  z-index: 1000;
+  font-family: 'Lato';
+  font-weight: 200;
+  background: white;
+  max-width: 20vmin;
+  padding: 0 1vmin;
+  margin: 0 auto;
+  font-size: 2vmin;
   transition: all 0.3s;
 }
 
@@ -140,6 +143,6 @@
   color: white;
   text-align: center;
   font-family: 'Lato';
-  top: 23vmin;
-  right: 41vmin;
+  top: -2vmin;
+  right: -2vmin;
 }

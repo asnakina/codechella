@@ -206,6 +206,12 @@ class App extends Component {
        areas={this.state.areas || []}
        artists={this.state.artists || []}
        vendors={this.state.vendors || []}
+       userArtists={this.state.user.artists || null}
+       userVendors={this.state.user.vendors || null}
+       favoriteArtist={this.favoriteArtist}
+       unfavoriteArtist={this.unfavoriteArtist}
+       favoriteVendor={this.favoriteVendor}
+       unfavoriteVendor={this.unfavoriteVendor}
        />
        break;
       case 'mainView':
