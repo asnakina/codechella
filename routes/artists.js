@@ -83,6 +83,25 @@ artistsRouter.delete('/:id', passport.authenticate('jwt', { session: false }), a
     }
 });
 
+artistsRouter.put('/:id', passport.authenticate('jwt', { session: false }), async (req, res) => {
+  try {
+    const artist = await Artist.findOne({
+      where: {
+        id: req.params.id
+      }
+    });
+    artist.update({
+      img_url: req.body.img_url
+    });
+    res.json(artist);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({
+      messsage: e.message
+    })
+  }
+});
+
 module.exports = {
  artistsRouter
 }

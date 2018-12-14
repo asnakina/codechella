@@ -146,6 +146,34 @@
   opacity: 0;
 }
 
-.Artist:hover .exit {
+.Artist:hover .exit, .Artist:hover .update, .Artist:hover .update-input {
   opacity: 1;
+}
+
+.update {
+  position: absolute;
+  width: 4vmin;
+  height: 4vmin;
+  border-radius: 0%;
+  background-image: linear-gradient(to right bottom, #95a7c3, #93a4de, #a38cf3, #c69efd, #f277f9);
+  color: white;
+  text-align: center;
+  font-family: 'Lato';
+  top: 0vmin;
+  right: 4vmin;
+  opacity: 0;
+}
+
+.update-input {
+  position: absolute;
+  width: 21vmin;
+  height: 4vmin;
+  border-radius: 0%;
+  background-image: linear-gradient(to right bottom, #95a7c3, #93a4de, #a38cf3, #c69efd, #f277f9);
+  color: white;
+  text-align: center;
+  font-family: 'Lato';
+  top: 0vmin;
+  left: 0vmin;
+  opacity: 0;
 }

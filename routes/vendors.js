@@ -89,6 +89,30 @@ vendorsRouter.put('/id:', async (req, rest) => {
   }
 });
 
+vendorsRouter.delete('/:id', passport.authenticate('jwt', { session: false }), async (req, res) => {
+  try {
+    const vendor = await Vendor.findOne({
+      where: {
+        id: req.params.id
+      }
+    });
+    if (req.user.id === vendor.created_by || req.user.id <= 3) {
+      vendor.destroy();
+      res.json(vendor);
+    }
+    else {
+      res.status(401).json({
+        message: 'Invalid credentials!'
+      });
+    }
+    } catch(e) {
+      console.error(e);
+      res.status(500).json({
+        msg: e.message
+      });
+    }
+});
+
 module.exports = {
   vendorsRouter
 }
