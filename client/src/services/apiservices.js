@@ -75,6 +75,15 @@ const postVendor = async (data, headers) => {
   return vendor.data;
 }
 
+const removeVendor = async (id, headers) => {
+  const vendor = await axios({
+    method: 'delete',
+    url: `${BASE_URL}/vendors/${id}`,
+    headers: headers
+  });
+  return vendor.data;
+}
+
 const getUser = async (headers) => {
   const user = await axios({
     method: 'get',
