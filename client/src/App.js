@@ -5,7 +5,6 @@ import VendorView from './components/vendor/VendorView';
 import AreaView from './components/area/AreaView';
 import ProfileView from './components/profile/ProfileView';
 import MainList from './components/main/MainList';
-import MapList from './components/map/MapList';
 import LoginView from './components/login/LoginView';
 import Footer from './components/footer/Footer';
 import './App.css';
@@ -182,9 +181,6 @@ class App extends Component {
     //switching between views
     let content;
     switch (this.state.screen) {
-      case 'mapView':
-       content = <MapList />;
-       break;
       case 'artistsView':
        content = <ArtistView
        userArtists={this.state.user.artists || null}
@@ -230,13 +226,12 @@ class App extends Component {
       <div className="App">
         <header>
            <a><img src={ require('./images/codechella.png') } alt={'home'} onClick={() => this.setView('mainView')} /></a>
-           <button onClick={() => this.setView('mapView')} className="navBtn">Map</button>
            <button onClick={() => this.setView('artistsView')} className="navBtn">Artists</button>
            <button onClick={() => this.setView('vendorsView')} className="navBtn">Vendors</button>
            <button onClick={() => this.setView('areasView')} className="navBtn">Areas</button>
            {this.state.user ?
              <button onClick={() => this.setView('profileView')} className="navBtn">Profile</button> :
-             <button onClick={() => this.setView('loginView')} className="navBtn">Login/Register</button>
+             <button onClick={() => this.setView('loginView')} className="navBtnBigger">Login/Register</button>
             }
           {this.state.user ? <button onClick={this.logout} className="navBtn">Logout</button>
           : null}

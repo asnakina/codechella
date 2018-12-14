@@ -5,7 +5,6 @@ import ArtistView from './artistcomponents/ArtistView';
 import VendorView from './vendorcomponents/VendorView';
 import AreaView from './areacomponents/AreaView.js';
 import MainList from './maincomponents/MainList';
-import MapList from './mapcomponents/MapList';
 import LoginView from './logincomponents/LoginView';
 import RegisterView from './logincomponents/RegisterView';
 
@@ -31,9 +30,6 @@ setView = (view) => {
 render(){
   let content;
   switch (this.state.screen) {
-    case 'mapView':
-     content = <MapList />;
-     break;
     case 'artistsView':
      content = <ArtistView artists={this.state.artists || []} />;
      break;
@@ -57,7 +53,6 @@ render(){
     <div>
     <header>
        <button onClick={() => this.setView('mainView')} className="navBtn">Main</button>
-       <button onClick={() => this.setView('mapView')} className="navBtn">Map</button>
        <button onClick={() => this.setView('artistsView')} className="navBtn">Artists</button>
        <button onClick={() => this.setView('vendorsView')} className="navBtn">Vendors</button>
        <button onClick={() => this.setView('areasView')} className="navBtn">Areas</button>
