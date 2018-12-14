@@ -20,7 +20,15 @@ render() {
               <div className="ProfileModalArtist">
                {this.props.artists.map((artist) => {
                  return (
-                  <Artist artist={artist} />
+                  <Artist
+                    key={artist.id}
+                    artist={artist}
+                    userArtists={this.props.userArtists}
+                    favoriteArtist={this.props.favoriteArtist}
+                    unfavoriteArtist={this.props.unfavoriteArtist}
+                    isFavorite={this.props.userArtists ?
+                      this.props.userArtists.some(userArtist => artist.id === userArtist.id) :
+                    false} />
                  )
                })}
              </div>
@@ -29,7 +37,15 @@ render() {
              <div className="ProfileModalVendor">
                {this.props.vendors.map((vendor) => {
                  return (
-                   <Vendor vendor={vendor} />
+                   <Vendor
+                     key={vendor.id}
+                     vendor={vendor}
+                     userVendors={this.props.userVendors}
+                     favoriteVendor={this.props.favoriteVendor}
+                     unfavoriteVendor={this.props.unfavoriteVendor}
+                     isFavorite={this.props.userVendors ?
+                       this.props.userVendors.some(userVendor => vendor.id === userVendor.id) :
+                     false} />
                   )
                 })}
               </div>

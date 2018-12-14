@@ -237,7 +237,18 @@ class App extends Component {
         content = <LoginView login={this.login} register={this.register}/>;
         break;
       case 'profileView':
-        content = <ProfileView user={this.state.user}/>;
+        content = <ProfileView
+          user={this.state.user}
+          artists={this.state.artists || []}
+          vendors={this.state.vendors || []}
+          userArtists={this.state.user.artists || null}
+          userVendors={this.state.user.vendors || null}
+          favoriteArtist={this.favoriteArtist}
+          unfavoriteArtist={this.unfavoriteArtist}
+          favoriteVendor={this.favoriteVendor}
+          unfavoriteVendor={this.unfavoriteVendor}
+          />;
+
         break;
       default:
        content = <MainList />;
