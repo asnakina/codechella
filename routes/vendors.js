@@ -8,7 +8,7 @@ vendorsRouter.get('/', async (req, res) => {
     const vendors = await Vendor.findAll();
     res.json(vendors)
   } catch(e) {
-    console.log(e);
+    console.error(e);
     res.status(500).json({message: `The rout is not connecting`})
   }
 });
@@ -20,7 +20,7 @@ vendorsRouter.get('/:id', async (req, res) => {
     });
     res.json(vendor);
   } catch(e) {
-    console.log(e);
+    console.error(e);
     res.status(500).json({message: e.message})
   }
 });
@@ -30,7 +30,7 @@ vendorsRouter.post('/', passport.authenticate('jwt', { session: false }), async 
     const vendor = await Vendor.create(req.body);
     res.json(vendor);
   } catch(e) {
-    console.log(e);
+    console.error(e);
     res.status(500).json({message: e.message})
   }
 });

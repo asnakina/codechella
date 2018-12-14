@@ -43,18 +43,21 @@ div .imgMain {
   opacity: 0.9;
 }
 
+
 .main > h2 {
   letter-spacing: inherit;
 }
 
 .main > h3 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   width: 100vw;
   height: 40px;
   color: white;
   margin: 0 auto;
   margin-top: 20px;
   font-family: 'Lato';
-  text-align: center;
   text-align: center;
   background-image: linear-gradient(to right bottom, #95a7c3, #93a4de, #a38cf3, #c69efd, #f277f9);
 }

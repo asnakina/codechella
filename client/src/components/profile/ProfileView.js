@@ -1,36 +1,35 @@
-import React from 'react';
-import Artist from '../artist/Artist';
-import Vendor from '../vendor/Vendor';
+import React, { Component } from 'react';
+import ProfileModal from './ProfileModal';
 
-export default function ProfileView(props) {
+export default class ProfileView extends Component {
+  constructor(props) {
+     super(props);
+     this.state = {
+      list: true,
+      selectedProfile: ''
+     }
+   this.handleChange = this.handleChange.bind(this);
 
-    return (
-      <div className="ArtistList">
+  }
 
-        {props.user.artists.map(artist => {
-          return (
-            <Artist key={artist.id}
-            artist={artist}
-            favoriteArtist={props.favoriteArtist}
-            unfavoriteArtist={props.unfavoriteArtist}
-            isFavorite={props.userArtists ?
-              props.userArtists.some(userArtist => artist.id === userArtist.id) :
-            false}/>
-          )
-        })}
-        {props.user.vendors.map(vendor => {
-          return (
-            <Vendor key={vendor.id}
-            vendor={vendor}
-            favoriteVendor={props.favoriteVendor}
-            unfavoriteVendor={props.unfavoriteVendor}
-            isFavorite={props.userVendors ?
-              props.userVendors.some(userVendor => vendor.id === userVendor.id) :
-            false}/>
-          )
-        })}
+  handleChange(selectedProfile) {
+    this.setState({
+      selectedProfile
+    });
+  }
 
+  render() {
+     return (
+      <div>
+             <ProfileModal
+               id={this.state.selectedProfile}
+               artists={this.props.user.artists.filter(artist => artist.profile_id === this.state.selectedProfile)}
+               vendors={this.props.user.vendors.filter(vendor => vendor.profile_id === this.state.selectedProfile)}
+               profiles = {this.props.profiles}
+             />
+
+           }
       </div>
-
-    )
+     )
+   }
 }

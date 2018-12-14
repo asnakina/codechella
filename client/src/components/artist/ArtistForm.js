@@ -54,7 +54,6 @@ export default class ArtistForm extends Component {
     if (this.state.artistState === 'good' &&
         this.state.descState === 'good' &&
         this.state.urlState === 'good') {
-          console.log('success!');
           this.props.submit({name, description, img_url, timeslot});
     }
   }

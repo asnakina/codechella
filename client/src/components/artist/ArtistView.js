@@ -16,7 +16,6 @@ export default class ArtistView extends Component {
 
   handleModal(e) {
     let { id } = e.target.parentNode;
-    console.log(e.target.parentNode.id);
     const artist = this.props.artists.filter(artist => artist.name.toLowerCase() === id.toLowerCase())[0];
     this.setState({artist});
   }

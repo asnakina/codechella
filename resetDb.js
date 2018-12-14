@@ -3,7 +3,7 @@ const { sequelize } = require('./models');
 async function resetDb() {
   try {
     await sequelize.sync({force: true});
-    console.log('Sync complete.');
+    console.error('Sync complete.');
   } catch (e) {
     console.error(e);
   } finally {
