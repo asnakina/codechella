@@ -16,7 +16,8 @@ export default function ArtistList(props) {
             props.userArtists.some(userArtist => artist.id === userArtist.id) :
           false}
           creator={props.creator === artist.created_by || props.creator <= 3}
-          delete={props.delete}/>
+          delete={props.delete}
+          update={props.update}/>
         )
       })}
     </div>
