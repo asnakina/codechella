@@ -26,6 +26,7 @@ class App extends Component {
     this.getVendors = this.getVendors.bind(this);
     this.getAreas = this.getAreas.bind(this);
     this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
     this.register = this.register.bind(this);
     this.buildHeaders = this.buildHeaders.bind(this);
     this.getCurrentUser = this.getCurrentUser.bind(this);
@@ -168,6 +169,15 @@ class App extends Component {
     await this.getVendors();
   }
 
+  async logout() {
+    localStorage.removeItem('token');
+    this.setView('mainView');
+    await this.setState({
+      token: '',
+      user: ''
+    });
+  }
+
   render() {
     //switching between views
     let content;
@@ -228,6 +238,8 @@ class App extends Component {
              <button onClick={() => this.setView('profileView')} className="navBtn">Profile</button> :
              <button onClick={() => this.setView('loginView')} className="navBtn">Login/Register</button>
             }
+          {this.state.user ? <button onClick={this.logout} className="navBtn">Logout</button>
+          : null}
         </header>
         { content }
         <Footer />
