@@ -1,10 +1,10 @@
 import React from 'react';
 import Artist from '../artist/Artist';
 import Vendor from '../vendor/Vendor';
-import './Area.css';
+import './Vendor.css';
 
 
-export default class AreaModal extends React.Component {
+export default class VendorModal extends React.Component {
   constructor(props) {
     super(props);
       this.handleClose = this.handleClose.bind(this);
@@ -16,12 +16,12 @@ export default class AreaModal extends React.Component {
 
 render() {
   return (
-    <div className="AreaModalParent">
-      <button onClick={this.handleClose} className="AreaExit">X</button>
-        <div className="AreaModalChild">
+    <div className="VendorModalParent">
+      <button onClick={this.handleClose} className="VendorExit">X</button>
+        <div className="VendorModalChild">
           <h3>Artists</h3>
-            <div className="AreaModalArtistVendor">
-              <div className="AreaModalArtist">
+            <div className="VendorModalArtistVendor">
+              <div className="VendorModalArtist">
                {this.props.artists.map((artist) => {
                  return (
                   <Artist artist={artist} />
@@ -29,7 +29,7 @@ render() {
                })}
              </div>
            <h3>Vendors</h3>
-           <div className="AreaModalVendor">
+           <div className="VendorModalVendor">
                {this.props.vendors.map((vendor) => {
                  return (
                    <Vendor vendor={vendor} />
