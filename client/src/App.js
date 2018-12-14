@@ -35,6 +35,7 @@ class App extends Component {
     this.unfavoriteVendor = this.unfavoriteVendor.bind(this);
     this.submitArtist = this.submitArtist.bind(this);
     this.submitVendor = this.submitVendor.bind(this);
+    this.deleteArtist = this.deleteArtist.bind(this);
   }
 
   setView = (view) => {
@@ -164,7 +165,6 @@ class App extends Component {
   }
 
   async submitArtist(data) {
-
     const headers = this.buildHeaders();
     data.created_by = this.state.user.id;
     const resp = await serv.postArtist(data, headers);
@@ -177,6 +177,14 @@ class App extends Component {
     const resp = await serv.postVendor(data, headers);
     await this.getVendors();
   }
+
+  async deleteArtist(e) {
+    let id = e.target.value;
+    const headers = this.buildHeaders();
+    const resp = await serv.removeArtist(id, headers);
+    await this.getArtists();
+  }
+
 
   async logout() {
     localStorage.removeItem('token');
@@ -193,11 +201,13 @@ class App extends Component {
     switch (this.state.screen) {
       case 'artistsView':
        content = <ArtistView
+       creator={this.state.user.id}
        userArtists={this.state.user.artists || null}
        artists={this.state.artists || []}
        favoriteArtist={this.favoriteArtist}
        unfavoriteArtist={this.unfavoriteArtist}
-       submit={this.submitArtist}/>;
+       submit={this.submitArtist}
+       delete={this.deleteArtist}/>;
        break;
       case 'vendorsView':
        content = <VendorView
