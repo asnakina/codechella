@@ -37,6 +37,7 @@ class App extends Component {
     this.submitVendor = this.submitVendor.bind(this);
     this.updateArtist = this.updateArtist.bind(this);
     this.deleteArtist = this.deleteArtist.bind(this);
+    this.deleteVendor = this.deleteVendor.bind(this);
   }
 
   setView = (view) => {
@@ -189,6 +190,13 @@ class App extends Component {
     const headers = this.buildHeaders();
     const resp = await serv.removeArtist(id, headers);
     await this.getArtists();
+  }
+
+  async deleteVendor(e) {
+    let id = e.target.value;
+    const headers = this.buildHeaders();
+    const resp = await serv.removeVendor(id, headers);
+    await this.getVendors();
   }
 
   async logout() {
