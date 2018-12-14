@@ -13,8 +13,7 @@ const sequelize = new Sequelize({
 
 const User = sequelize.define('user', {
   username: Sequelize.STRING,
-  password: Sequelize.STRING,
-  ticket: Sequelize.STRING
+  password: Sequelize.STRING
 }, {
   hooks: {
     beforeCreate: async (user, options) => {
@@ -26,7 +25,6 @@ const User = sequelize.define('user', {
 const Artist = sequelize.define('artist', {
   name: Sequelize.STRING,
   description: Sequelize.STRING,
-  timeslot: Sequelize.STRING,
   img_url: Sequelize.STRING,
   created_by: Sequelize.INTEGER
 

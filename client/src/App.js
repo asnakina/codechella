@@ -100,7 +100,7 @@ class App extends Component {
       const user = await serv.getUser(headers);
       await this.setState({user});
     } catch(e) {
-      console.log(e);
+      console.error(e);
     }
   }
 
@@ -118,7 +118,7 @@ class App extends Component {
   }
 
   async register(data) {
-    console.log(data);
+
     const resp = await serv.registerUser(data);
     await this.setState({token: resp.token});
     await this.getCurrentUser();
@@ -127,17 +127,27 @@ class App extends Component {
   }
 
   async favoriteArtist(e) {
-    let id = e.target.name;
-    const headers = this.buildHeaders();
-    const resp = await serv.favoriteArtist(id, headers);
-    this.getCurrentUser();
+    if (this.state.user) {
+      let id = e.target.name;
+      const headers = this.buildHeaders();
+      const resp = await serv.favoriteArtist(id, headers);
+      this.getCurrentUser();
+    }
+    else {
+      this.setView('loginView');
+    }
   }
 
   async favoriteVendor(e) {
-    let id = e.target.name;
-    const headers = this.buildHeaders();
-    const resp = await serv.favoriteVendor(id, headers);
-    this.getCurrentUser();
+    if (this.state.user) {
+      let id = e.target.name;
+      const headers = this.buildHeaders();
+      const resp = await serv.favoriteVendor(id, headers);
+      this.getCurrentUser();
+    }
+    else {
+      this.setView('loginView');
+    }
   }
 
   async unfavoriteArtist(e) {
@@ -155,7 +165,7 @@ class App extends Component {
   }
 
   async submitArtist(data) {
-    console.log('functional');
+
     const headers = this.buildHeaders();
     data.created_by = this.state.user.id;
     const resp = await serv.postArtist(data, headers);

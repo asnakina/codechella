@@ -34,7 +34,7 @@ usersRouter.get('/', passport.authenticate('jwt', { session: false }), async (re
     })
     res.json(user);
   } catch (e) {
-      console.log(e)
+      console.error(e)
       res.status(500).json({message: `The route is not connecting`})
     }
   }
@@ -53,7 +53,7 @@ usersRouter.post('/register', async (req, res) => {
       res.json({token});
     }
   } catch (e){
-      console.log(e);
+      console.error(e);
       res.status(500).json({message: e.message})
     }
   }
@@ -89,7 +89,7 @@ usersRouter.post('/login', async (req, res) => {
       });
       res.json({user, token});
     } catch(e) {
-      console.log(e);
+      console.error(e);
       res.status(401).json({msg: e.message});
     }
   });
@@ -124,7 +124,7 @@ usersRouter.post('/artists/:artist', passport.authenticate('jwt', { session: fal
     })
     res.json(user.artists);
   } catch(e) {
-    console.log(e);
+    console.error(e);
     res.status(500).json({message: e.message})
   }
 });
@@ -143,7 +143,7 @@ usersRouter.delete('/artists/:artist', passport.authenticate('jwt', { session: f
     });
     res.json(user.artists);
   } catch(e) {
-    console.log(e);
+    console.error(e);
     res.status(500).json({message: e.message})
   }
 });
@@ -179,7 +179,7 @@ usersRouter.post('/vendors/:vendor', passport.authenticate('jwt', { session: fal
     })
     res.json(user.vendors);
   } catch(e) {
-    console.log(e);
+    console.error(e);
     res.status(500).json({message: e.message})
   }
 });

@@ -1,18 +1,15 @@
 import React from 'react';
 import Artist from '../artist/Artist';
 import Vendor from '../vendor/Vendor';
-import './Vendor.css';
 
 
-export default class VendorModal extends React.Component {
+
+export default class ProfileModal extends React.Component {
   constructor(props) {
     super(props);
-      this.handleClose = this.handleClose.bind(this);
+
   }
 
-  handleClose = (e) => {
-    this.props.setModalVisibility(false)
-  }
 
 render() {
   return (
