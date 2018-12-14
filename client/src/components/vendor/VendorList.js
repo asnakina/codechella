@@ -14,10 +14,12 @@ export default function VendorList(props) {
           unfavoriteVendor={props.unfavoriteVendor}
           isFavorite={props.userVendors ?
             props.userVendors.some(userVendor => vendor.id === userVendor.id) :
-          false}/>
+          false}
+          creator={props.creator === vendor.created_by || props.creator <= 3}
+          delete={props.delete}
+          />
         )
       })}
     </div>
   )
 }
-// <h1>Vendors:</h1>
