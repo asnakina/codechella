@@ -1,0 +1,148 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  font-family: 'Lato';
+  background-image: linear-gradient(to right bottom, #95a7c3, #93a4de, #a38cf3, #c69efd, #f277f9);
+  color: white;
+  padding: 4vmin;
+  margin: 2vmin 0;
+  grid-column: span 3;
+}
+
+.ProfileModalParent {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.ProfileModalChild {
+  width: 90vmin;
+  min-height: 75vmin;
+  border: 1px solid white;
+  margin: 0 auto;
+  background-image: linear-gradient(to right bottom, #95a7c3, #93a4de, #a38cf3, #c69efd, #f277f9);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 2vmin;
+}
+
+.ProfileModalArtist {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+
+.ProfileModalVendor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.ProfileModalChild h3 {
+  color: white;
+  z-index: 1000;
+  font-family: 'Lato';
+  font-weight: 200;
+  max-width: 20vmin;
+  padding: 0 1vmin;
+  margin: 2vmin auto;
+  font-size: 3vmin;
+  transition: all 0.3s;
+}
+
+.ProfileModalArtist h3, .ProfileModalVendor h3 {
+  color: grey;
+  z-index: 1000;
+  font-family: 'Lato';
+  font-weight: 200;
+  background: white;
+  max-width: 20vmin;
+  padding: 0 1vmin;
+  margin: 0 auto;
+  font-size: 2vmin;
+  transition: all 0.3s;
+}
+
+.Profile {
+  width: 440px;
+  height: 300px;
+  margin-top: 50px;
+  position: relative;
+  box-shadow: 2px 2px lightgrey;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.Profile >img {
+  width: 440px;
+  height: 300px;
+  position: absolute;
+}
+
+.Profile:hover > img {
+  transform: scale(1.05);
+}
+
+.Profile h3 {
+  color: grey;
+  z-index: 1000;
+  font-family: 'Lato';
+  font-weight: 200;
+  background: white;
+  max-width: 20vmin;
+  padding: 0 1vmin;
+  margin: 0 auto;
+  font-size: 3vmin;
+  transition: all 0.3s;
+}
+
+.ProfileFavebutton {
+  width:100%;
+  height:20%;
+  background-image: linear-gradient(to right bottom, #95a7c3, #93a4de, #a38cf3, #c69efd, #f277f9);
+  border:none;
+  color:white;
+  font-weight:bold;
+  font-size:2.5vmin;
+  opacity: 0;
+  position: absolute;
+  top: 40vmin;
+  left: 0;
+  font-family: 'Lato';
+  font-weight: 200;
+}
+
+.Profile:hover .ProfileFavebutton {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.ProfileList {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}
+
+.ProfileExit {
+  position: absolute;
+  z-index: 100;
+  width: 4vmin;
+  height: 4vmin;
+  border-radius: 50%;
+  background-image: linear-gradient(to right bottom, #95a7c3, #93a4de, #a38cf3, #c69efd, #f277f9);
+  color: white;
+  text-align: center;
+  font-family: 'Lato';
+  top: -2vmin;
+  right: -2vmin;
+}

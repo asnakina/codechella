@@ -1,7 +1,7 @@
 import React from 'react';
 import Artist from '../artist/Artist';
 import Vendor from '../vendor/Vendor';
-
+import './Profile.css';
 
 
 export default class ProfileModal extends React.Component {
@@ -13,25 +13,26 @@ export default class ProfileModal extends React.Component {
 
 render() {
   return (
-    <div className="VendorModalParent">
-      <button onClick={this.handleClose} className="VendorExit">X</button>
-        <div className="VendorModalChild">
+    <div className="ProfileModalParent">
+        <div className="ProfileModalChild">
           <h3>Artists</h3>
-            <div className="VendorModalArtistVendor">
-              <div className="VendorModalArtist">
+            <div className="ProfileModalArtistProfile">
+              <div className="ProfileModalArtist">
                {this.props.artists.map((artist) => {
                  return (
                   <Artist artist={artist} />
                  )
                })}
              </div>
-           <h3>Vendors</h3>
-           <div className="VendorModalVendor">
+           <h3>Vendor</h3>
+           <div className="ProfileModalProfile">
+             <div className="ProfileModalVendor">
                {this.props.vendors.map((vendor) => {
                  return (
                    <Vendor vendor={vendor} />
                   )
                 })}
+              </div>
                </div>
             </div>
          </div>
