@@ -12,6 +12,7 @@
 .ant-carousel .slick-slide {
   text-align: center;
   item-align: center;
+  position: relative;
   height: 76vh;
   width: 100vw;
   line-height: 160px;
@@ -38,7 +39,7 @@ div .imgMain {
   align-self: flex-start;
   filter: invert(1);
   text-align: center;
-  top: 30vmin;
+  top: 50vmin;
   right: 3vmin;
   opacity: 0.9;
 }
