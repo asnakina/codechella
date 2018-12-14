@@ -34,7 +34,9 @@ export default class ArtistView extends Component {
           onChange={this.handleModal}
           favoriteArtist={this.props.favoriteArtist}
           unfavoriteArtist={this.props.unfavoriteArtist}
-          userArtists={this.props.userArtists}/> :
+          userArtists={this.props.userArtists}
+          creator={this.props.creator}
+          delete={this.props.delete}/> :
         <ArtistModal
           artist={this.state.artist}
           reset={this.resetModal}/>}
@@ -44,7 +46,9 @@ export default class ArtistView extends Component {
           onChange={this.handleModal}
           favoriteArtist={this.props.favoriteArtist}
           unfavoriteArtist={this.props.unfavoriteArtist}
-          userArtists={this.props.userArtists}/>
+          userArtists={this.props.userArtists}
+          creator={this.props.creator}
+          delete={this.props.delete}/>
           <ArtistForm
             artists={this.props.artists}
             submit={this.props.submit}

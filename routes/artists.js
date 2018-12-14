@@ -59,21 +59,28 @@ artistsRouter.put('/:id', async (req, res) => {
   }
 });
 
-artistsRouter.delete('/:id', async (req, res) => {
+artistsRouter.delete('/:id', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
     const artist = await Artist.findOne({
       where: {
         id: req.params.id
       }
     });
-    artist.destroy();
-    res.json(artist);
-  } catch (e) {
-    console.error(e);
-    res.status(500).json({
-      message: e.message
-    })
-  }
+    if (req.user.id === artist.created_by || req.user.id <= 3) {
+      artist.destroy();
+      res.json(artist);
+    }
+    else {
+      res.status(401).json({
+        message: 'Invalid credentials!'
+      });
+    }
+    } catch(e) {
+      console.error(e);
+      res.status(500).json({
+        msg: e.message
+      });
+    }
 });
 
 module.exports = {

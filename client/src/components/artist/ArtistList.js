@@ -5,7 +5,6 @@ import './ArtistList.css';
 export default function ArtistList(props) {
   return (
     <div className="ArtistList">
-
       {props.artists.map(artist => {
         return (
           <Artist key={artist.id}
@@ -15,7 +14,9 @@ export default function ArtistList(props) {
           unfavoriteArtist={props.unfavoriteArtist}
           isFavorite={props.userArtists ?
             props.userArtists.some(userArtist => artist.id === userArtist.id) :
-          false}/>
+          false}
+          creator={props.creator === artist.created_by || props.creator <= 3}
+          delete={props.delete}/>
         )
       })}
     </div>

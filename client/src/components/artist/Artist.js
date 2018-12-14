@@ -9,6 +9,8 @@ export default function Artist(props) {
       {props.isFavorite ?
       <span><input className="favebutton" name={props.artist.id} type="button" value="Remove from Favorites" onClick={props.unfavoriteArtist}/></span> :
       <span><input className="favebutton" name={props.artist.id} type="button" value="Add to Favorites" onClick={props.favoriteArtist}/></span>}
+      {props.creator ?
+      <button className="exit" value={props.artist.id} onClick={props.delete}>🗑</button>: null}
     </div>
   )
 }

@@ -36,9 +36,13 @@ const BASE_URL = 'http://localhost:3001';
    return artist.data;
 }
 
- const removeArtist = async (id) => {
-  const artist = await axios.delete(`${BASE_URL}/artists/${id}`);
-  return artist.data;
+ const removeArtist = async (id, headers) => {
+   const artist = await axios({
+     method: 'delete',
+     url: `${BASE_URL}/artists/${id}`,
+     headers: headers
+   });
+   return artist.data;
 }
 
  const getVendors = async () => {
