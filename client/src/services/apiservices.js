@@ -70,10 +70,10 @@ const postVendor = async (data, headers) => {
   return vendor.data;
 }
 
- const removeVendor = async (id) => {
-  const vendor = await axios.delete(`${BASE_URL}/vendors/${id}`);
-  return vendor.data;
-}
+//  const removeVendor = async (id) => {
+//   const vendor = await axios.delete(`${BASE_URL}/vendors/${id}`);
+//   return vendor.data;
+// }
 
 const removeVendor = async (id, headers) => {
   const vendor = await axios({
